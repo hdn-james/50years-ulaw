@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Enhanced metallic luxury banner background.
+  Changes vs previous version:
+    * Added multi‑axis reflective gradients (warm + subtle cool lift for metal depth)
+    * Added specular highlight filters (feSpecularLighting) blended with screen
+    * Added brushed texture overlay (directional turbulence + slight blur + low opacity)
+    * Refined glow hotspots (more layered falloff)
+    * Added reflective edge rim & soft inner bevel hint
+    * Accent line system preserved (full-width + wave-following variants)
+    * Tunable CSS variables for quick theme adjustments
+-->
+<svg
+  viewBox="0 0 1200 800"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+  preserveAspectRatio="xMidYMid slice"
+>
+  <style>
+    :root {
+      --gold-primary:#E6BE8A;
+      --gold-secondary:#C5A880;
+      --gold-accent:#fff6d1;
+      --gold-deep:#B08F63;
+      --gold-cool:#e7d8c3; /* faint neutral lift */
+      --ivory:#F8F5F0;
+      --hotspot-strong:1;
+      --hotspot-soft:0.65;
+      --texture-opacity:0.28;
+      --specular-intensity:0.9;
+      --rim-opacity:0.28;
+    }
+    .blend-screen { mix-blend-mode:screen; }
+    .blend-overlay { mix-blend-mode:overlay; }
+    .no-pointer { pointer-events:none; }
+  </style>
+
+  <!-- BASE FILL -->
+  <rect x="0" y="0" width="1200" height="800" fill="var(--ivory)" />
+
+  <defs>
+    <!-- ================= GRADIENTS ================= -->
+
+    <!-- Top wave bands -->
+    <linearGradient id="topDark" x1="0%" y1="0%" x2="65%" y2="5%">
+      <stop offset="0%"  stop-color="var(--gold-secondary)" />
+      <stop offset="55%" stop-color="var(--gold-deep)" />
+      <stop offset="100%" stop-color="#8F744C" />
+    </linearGradient>
+    <linearGradient id="topMid" x1="0%" y1="0%" x2="60%" y2="5%">
+      <stop offset="0%"  stop-color="var(--gold-primary)" />
+      <stop offset="50%" stop-color="#D9B078" />
+      <stop offset="100%" stop-color="var(--gold-secondary)" />
+    </linearGradient>
+    <linearGradient id="topLight" x1="0%" y1="0%" x2="55%" y2="0%">
+      <stop offset="0%"  stop-color="var(--gold-accent)" />
+      <stop offset="55%" stop-color="var(--gold-primary)" />
+      <stop offset="100%" stop-color="#DCB582" />
+    </linearGradient>
+
+    <!-- Bottom wave bands -->
+    <linearGradient id="bottomDark" x1="100%" y1="100%" x2="35%" y2="70%">
+      <stop offset="0%"  stop-color="var(--gold-secondary)" />
+      <stop offset="55%" stop-color="var(--gold-deep)" />
+      <stop offset="100%" stop-color="#86673F" />
+    </linearGradient>
+    <linearGradient id="bottomMid" x1="100%" y1="100%" x2="40%" y2="70%">
+      <stop offset="0%"  stop-color="var(--gold-primary)" />
+      <stop offset="55%" stop-color="#D5AD76" />
+      <stop offset="100%" stop-color="var(--gold-secondary)" />
+    </linearGradient>
+    <linearGradient id="bottomLight" x1="100%" y1="100%" x2="45%" y2="70%">
+      <stop offset="0%"  stop-color="var(--gold-accent)" />
+      <stop offset="55%" stop-color="var(--gold-primary)" />
+      <stop offset="100%" stop-color="#E2B982" />
+    </linearGradient>
+
+    <!-- Vertical reflective modulation (adds subtle cool center & warm lower) -->
+    <linearGradient id="verticalReflect" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%"  stop-color="rgba(255,255,255,0.18)" />
+      <stop offset="38%" stop-color="rgba(255,255,255,0.50)" />
+      <stop offset="50%" stop-color="rgba(231,216,195,0.55)" />
+      <stop offset="62%" stop-color="rgba(255,240,225,0.35)" />
+      <stop offset="100%" stop-color="rgba(176,135,70,0.20)" />
+    </linearGradient>
+
+    <!-- Inner soft radial light for center cleanliness -->
+    <radialGradient id="centerLift" cx="50%" cy="48%" r="55%">
+      <stop offset="0%"  stop-color="rgba(255,255,255,0.65)" />
+      <stop offset="60%" stop-color="rgba(255,255,255,0.18)" />
+      <stop offset="100%" stop-color="rgba(255,255,255,0)" />
+    </radialGradient>
+
+    <!-- Sheen linear gradient for reflective strokes -->
+    <linearGradient id="sheen" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="rgba(255,255,255,0)" />
+      <stop offset="45%"  stop-color="rgba(255,255,255,0.65)" />
+      <stop offset="55%"  stop-color="rgba(255,255,255,0.15)" />
+      <stop offset="100%" stop-color="rgba(255,255,255,0)" />
+    </linearGradient>
+
+    <!-- Accent line stroke gradient -->
+    <linearGradient id="lineAccent" x1="0%" y1="0%" x2="95%" y2="0%">
+      <stop offset="0%"   stop-color="rgba(198,170,130,0.70)" />
+      <stop offset="55%"  stop-color="rgba(198,170,130,0.30)" />
+      <stop offset="100%" stop-color="rgba(198,170,130,0)" />
+    </linearGradient>
+
+    <!-- Hotspot gradients -->
+    <radialGradient id="hotspotStrong" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"  stop-color="rgba(255,250,235,1)" />
+      <stop offset="30%" stop-color="rgba(255,244,214,0.82)" />
+      <stop offset="60%" stop-color="rgba(255,238,200,0.30)" />
+      <stop offset="100%" stop-color="rgba(255,238,200,0)" />
+    </radialGradient>
+    <radialGradient id="hotspotSoft" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"  stop-color="rgba(255,250,235,0.85)" />
+      <stop offset="40%" stop-color="rgba(255,245,220,0.38)" />
+      <stop offset="100%" stop-color="rgba(255,245,220,0)" />
+    </radialGradient>
+
+    <!-- Peripheral vignette -->
+    <radialGradient id="vignette" cx="50%" cy="50%" r="75%">
+      <stop offset="60%" stop-color="rgba(0,0,0,0)" />
+      <stop offset="100%" stop-color="rgba(0,0,0,0.10)" />
+    </radialGradient>
+
+    <!-- Edge light (rim) -->
+    <radialGradient id="edgeRim" cx="50%" cy="50%" r="50%">
+      <stop offset="75%" stop-color="rgba(255,255,255,0)" />
+      <stop offset="100%" stop-color="rgba(255,255,255,0.55)" />
+    </radialGradient>
+
+    <!-- ================= FILTERS ================= -->
+
+    <!-- Large blur for main glow -->
+    <filter id="blurLarge" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="40" />
+    </filter>
+
+    <!-- Medium blur -->
+    <filter id="blurMedium" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="22" />
+    </filter>
+
+    <!-- Specular highlight (synthetic metal glint) -->
+    <filter id="specularHotspot" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9 0.35" numOctaves="2" seed="13" result="noise"/>
+      <feGaussianBlur in="noise" stdDeviation="8" result="bump"/>
+      <feSpecularLighting in="bump" surfaceScale="3" specularConstant="1.1" specularExponent="35" lighting-color="white" result="spec">
+        <fePointLight x="900" y="500" z="180"/>
+      </feSpecularLighting>
+      <feComponentTransfer in="spec">
+        <feFuncA type="linear" slope="0.9"/>
+      </feComponentTransfer>
+      <feGaussianBlur stdDeviation="6" result="specBlur"/>
+      <feBlend in="SourceGraphic" in2="specBlur" mode="screen"/>
+    </filter>
+
+    <!-- Brushed texture -->
+    <filter id="brushed" x="-20%" y="-20%" width="140%" height="140%">
+      <!-- Horizontal streaks (turbulence with high x freq, low y freq) -->
+      <feTurbulence type="fractalNoise" baseFrequency="0.8 0.035" numOctaves="2" seed="5" result="turb"/>
+      <!-- Slight directional blur to soften -->
+      <feGaussianBlur in="turb" stdDeviation="0.4 0" result="blurred"/>
+      <!-- Convert to subtle alpha map -->
+      <feColorMatrix in="blurred" type="matrix"
+        values="
+          0 0 0 0 0.85
+          0 0 0 0 0.78
+          0 0 0 0 0.65
+          0 0 0 -0.85 1.1" result="streaks"/>
+      <feComponentTransfer in="streaks">
+        <feFuncR type="linear" slope="1"/>
+        <feFuncG type="linear" slope="1"/>
+        <feFuncB type="linear" slope="1"/>
+        <feFuncA type="linear" slope="0.18"/>
+      </feComponentTransfer>
+    </filter>
+
+    <!-- Subtle noise (retain previous approach) -->
+    <filter id="noise">
+      <feTurbulence baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" type="fractalNoise" />
+      <feColorMatrix type="saturate" values="0" />
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.08" />
+      </feComponentTransfer>
+    </filter>
+    <mask id="noiseMask">
+      <rect width="1200" height="800" fill="white" filter="url(#noise)" />
+    </mask>
+
+    <!-- Mask for brushed overlay to fade center -->
+    <radialGradient id="brushMask" cx="50%" cy="48%" r="70%">
+      <stop offset="0%" stop-color="white" />
+      <stop offset="55%" stop-color="white" />
+      <stop offset="100%" stop-color="black" />
+    </radialGradient>
+    <mask id="brushFade">
+      <rect width="1200" height="800" fill="url(#brushMask)" />
+    </mask>
+
+  </defs>
+
+  <!-- Vignette -->
+  <rect width="1200" height="800" fill="url(#vignette)" style="mix-blend-mode:multiply; opacity:.55" />
+
+  <!-- Vertical reflective modulation overlay -->
+  <rect width="1200" height="800" fill="url(#verticalReflect)" style="mix-blend-mode:overlay; opacity:.55"/>
+
+  <!-- Inner center radial lift -->
+  <rect width="1200" height="800" fill="url(#centerLift)" style="mix-blend-mode:screen; opacity:.65"/>
+
+  <!-- Top-left metallic wave stack -->
+  <g>
+    <path d="M0 0 H720 Q560 160 380 200 Q190 240 0 320 Z" fill="url(#topDark)"/>
+    <path d="M0 0 H670 Q520 150 350 185 Q165 220 0 285 Z" fill="url(#topMid)"/>
+    <path d="M0 0 H610 Q470 132 315 170 Q145 205 0 255 Z" fill="url(#topLight)"/>
+  </g>
+
+  <!-- Bottom-right metallic wave stack -->
+  <g>
+    <path d="M1200 800 H520 Q710 640 905 608 Q1085 575 1200 520 Z" fill="url(#bottomDark)"/>
+    <path d="M1200 800 H565 Q755 655 920 625 Q1075 595 1200 555 Z" fill="url(#bottomMid)"/>
+    <path d="M1200 800 H605 Q785 675 945 642 Q1090 610 1200 585 Z" fill="url(#bottomLight)"/>
+  </g>
+
+  <!-- Reflective sheen strokes (top-left) -->
+  <g opacity="0.42">
+    <path d="M30 95 C210 65 390 60 590 40" stroke="url(#sheen)" stroke-width="9" fill="none"/>
+    <path d="M0 145 C200 120 360 115 560 95" stroke="url(#sheen)" stroke-width="7" fill="none" opacity=".7"/>
+  </g>
+
+  <!-- Reflective sheen strokes (bottom-right) -->
+  <g opacity="0.35">
+    <path d="M560 720 C760 700 920 705 1200 660" stroke="url(#sheen)" stroke-width="10" fill="none"/>
+    <path d="M600 760 C810 740 970 735 1200 700" stroke="url(#sheen)" stroke-width="8" fill="none" opacity=".65"/>
+  </g>
+
+  <!-- ===================== ACCENT LINES VARIANTS ===================== -->
+  <!-- FULL-WIDTH (visible) -->
+  <g class="accent-lines-full" stroke="url(#lineAccent)" stroke-width="1.25" fill="none" opacity=".52">
+    <path d="M0 565 C360 510 760 525 1200 500"/>
+    <path d="M0 585 C350 530 760 548 1200 522"/>
+    <path d="M0 605 C340 555 760 568 1200 544"/>
+    <path d="M0 625 C330 575 760 588 1200 566"/>
+    <path d="M0 645 C320 595 760 608 1200 588"/>
+  </g>
+  <!-- WAVE-FOLLOWING (hidden) -->
+  <g class="accent-lines-wave" stroke="url(#lineAccent)" stroke-width="1.3" fill="none" opacity=".55" style="display:none">
+    <path d="M430 565 C720 505 980 525 1200 500"/>
+    <path d="M430 585 C710 530 970 548 1200 522"/>
+    <path d="M430 605 C710 550 970 568 1200 544"/>
+    <path d="M430 625 C710 570 970 588 1200 566"/>
+    <path d="M430 645 C710 590 970 608 1200 588"/>
+  </g>
+  <!-- ================================================================ -->
+
+  <!-- Layered hotspot glows (bottom-right) -->
+  <g filter="url(#blurLarge)" class="blend-screen" opacity=".85">
+    <ellipse cx="950" cy="640" rx="170" ry="120" fill="url(#hotspotStrong)"/>
+    <ellipse cx="1085" cy="600" rx="110" ry="85" fill="url(#hotspotSoft)"/>
+  </g>
+  <g filter="url(#blurMedium)" class="blend-screen" opacity=".55">
+    <ellipse cx="880" cy="690" rx="140" ry="90" fill="url(#hotspotSoft)"/>
+  </g>
+  <!-- Faint opposite corner lift -->
+  <g filter="url(#blurMedium)" class="blend-screen" opacity=".42">
+    <ellipse cx="210" cy="120" rx="200" ry="130" fill="url(#hotspotSoft)"/>
+  </g>
+
+  <!-- Specular highlight patches (subtle) -->
+  <g class="blend-screen" opacity="0.55" filter="url(#specularHotspot)">
+    <ellipse cx="1020" cy="590" rx="150" ry="110" fill="rgba(255,255,255,0.35)"/>
+    <ellipse cx="980" cy="670" rx="90" ry="70" fill="rgba(255,255,255,0.25)"/>
+    <ellipse cx="250" cy="140" rx="140" ry="95" fill="rgba(255,255,255,0.22)"/>
+  </g>
+
+  <!-- Rim edge subtle highlight -->
+  <circle cx="600" cy="400" r="400" fill="url(#edgeRim)" style="mix-blend-mode:screen; opacity:var(--rim-opacity)"/>
+
+  <!-- Brushed texture overlay (masked to fade center) -->
+  <rect width="1200" height="800" filter="url(#brushed)" mask="url(#brushFade)" opacity="var(--texture-opacity)" style="mix-blend-mode:overlay"/>
+
+  <!-- Noise overlay -->
+  <rect width="1200" height="800" fill="var(--gold-secondary)" mask="url(#noiseMask)" opacity=".12" style="mix-blend-mode:overlay"/>
+
+  <!-- Final soft polish glaze (light screen) -->
+  <rect width="1200" height="800" fill="rgba(255,255,255,0.08)" style="mix-blend-mode:screen"/>
+
+</svg>
