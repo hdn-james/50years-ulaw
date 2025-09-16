@@ -30,7 +30,11 @@
       },
       "suspicious": {
         "noUnknownAtRules": "off"
-      }
+      },
+      "correctness": {
+        "useUniqueElementIds": "off"
+      },
+      "a11y": { "noSvgWithoutTitle": "off" }
     }
   },
   "javascript": {

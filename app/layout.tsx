@@ -1,9 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import { Header } from '@/components/ui/header';
 import { cn } from '@/lib/utils';
 import './globals.css';
-import { Banner } from '@/components/ui/banner';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -20,8 +18,6 @@ export default function RootLayout({
   return (
     <html lang="vi">
       <body className={cn('text-base antialiased', inter.className)}>
-        <Header />
-        <Banner />
         {children}
       </body>
     </html>

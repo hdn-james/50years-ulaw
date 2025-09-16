@@ -4,19 +4,21 @@ import { routes } from '@/constants';
 
 export const Header = () => {
   return (
-    <div className="bg-gradient-to-r from-blue-950 to-teal-900">
+    <div className="bg-gradient-to-b from-teal-900 to-sky-950">
       <div className="items-center-safe justify-center-safe container flex h-26 gap-6 text-[#F8F5F0]">
-        <Image
-          src="/logo.png"
-          alt="Logo"
-          width={39.5 * 2}
-          height={64 * 2}
-          className="ml-4 h-12 w-auto"
-        />
+        <Link href="" className="min-w-fit">
+          <Image
+            src="/logo.png"
+            alt="Logo"
+            width={39.5 * 1.5}
+            height={64 * 1.5}
+            className="ml-4 size-auto"
+          />
+        </Link>
         {routes.map((route) => (
           <Link
             key={route.href}
-            className="text-center font-semibold uppercase hover:text-[#E6BE8A]"
+            className="text-center font-semibold uppercase transition-colors duration-300 hover:text-[#E6BE8A]"
             href={route.href}
           >
             {route.name}
