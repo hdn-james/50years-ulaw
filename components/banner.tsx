@@ -1,44 +1,56 @@
-import { ShimmeringText } from './ui/shimmering-text';
+import Image from "next/image";
+import { ShimmeringText } from "@/components/ui/shimmering-text";
+import { Separator } from "./ui/separator";
 
 export const Banner = () => {
   return (
-    <section className="relative flex h-[calc(100vh-6.5rem)] flex-col items-center justify-center bg-center bg-cover bg-gold-luxury px-6 text-amber-400">
-      <div className="justify-center-safe items-center-safe flex flex-col gap-4">
-        <ShimmeringText
-          text="TRƯỜNG ĐẠI HỌC LUẬT THÀNH PHỐ HỒ CHÍ MINH"
-          className="font-black text-base leading-normal tracking-wide md:text-2xl lg:text-4xl xl:text-5xl"
-          color="var(--color-emerald-800)"
-          shimmerColor="var(--color-emerald-100)"
-          duration={3}
-          repeatDelay={1.5}
-        />
-        <ShimmeringText
-          text="KỶ NIỆM 50 NĂM TRUYỀN THỐNG"
-          className="font-black text-base leading-normal tracking-wide md:text-2xl lg:text-4xl xl:text-5xl"
-          color="var(--color-emerald-800)"
-          shimmerColor="var(--color-emerald-100)"
-          duration={3}
-          repeatDelay={3}
-        />
-        <ShimmeringText
-          text="(1976 – 2026)"
-          className="font-black text-base leading-normal tracking-wide md:text-2xl lg:text-4xl xl:text-5xl"
-          color="var(--color-emerald-800)"
-          shimmerColor="var(--color-emerald-100)"
-          duration={3}
-          repeatDelay={4.5}
-        />
-      </div>
+    <section className="relative flex h-dvh snap-start snap-always items-center justify-center">
+      <div className="container grid md:grid-cols-2 gap-8 md:gap-0">
+        <div className="justify-center-safe items-center-safe flex">
+          <Image src="/logo.png" width={39.5 * 10} height={64 * 10} alt="Banner" className="h-auto w-2/3" />
+        </div>
+        <div className="justify-center-safe flex flex-col items-start sm:items-center md:items-start space-y-2 px-4">
+          <h1>
+            <ShimmeringText
+              text="TRƯỜNG ĐẠI HỌC LUẬT THÀNH PHỐ HỒ CHÍ MINH"
+              className="font-bold text-base xl:text-lg 2xl:text-2xl leading-normal tracking-wide"
+              color="var(--color-emerald-900)"
+              shimmerColor="var(--color-emerald-100)"
+              duration={3}
+              repeatDelay={1.5}
+            />
+          </h1>
+          <h1>
+            <ShimmeringText
+              text="KỶ NIỆM 50 NĂM TRUYỀN THỐNG"
+              className="font-black text-2xl xl:text-3xl 2xl:text-4xl leading-normal tracking-wide"
+              color="var(--color-emerald-900)"
+              shimmerColor="var(--color-emerald-100)"
+              duration={3}
+              repeatDelay={1.5}
+            />
+          </h1>
+          <h1>
+            <ShimmeringText
+              text="(1976 – 2026)"
+              className="font-bold text-base xl:text-lg 2xl:text-xl leading-normal tracking-wide"
+              color="var(--color-emerald-900)"
+              shimmerColor="var(--color-emerald-100)"
+              duration={3}
+              repeatDelay={1.5}
+            />
+          </h1>
+          <Separator className="my-3 bg-emerald-900/20" />
+          <p className="font-light text-base xl:text-lg 2xl:text-xl text-emerald-900">
+            Chuỗi chương trình kỷ niệm 50 năm truyền thống và 30 năm ngày mang tên Trường Đại học Luật Thành phố Hồ Chí
+            Minh một thông điệp mạnh mẽ, vừa nhìn lại chặng đường lịch sử đầy tự hào (50 năm vững truyền thống) vừa định
+            hướng cho một tương lai phát triển rực rỡ và bền vững (sáng tương lai)
+          </p>
 
-      <div className="mt-8">
-        <ShimmeringText
-          text='"50 năm ULAW - Vững truyền thống, sáng tương lai"'
-          className="font-semibold text-base text-shadow-amber-500 sm:text-base md:mt-6 md:text-xl lg:text-3xl xl:text-4xl"
-          color="var(--color-amber-400)"
-          shimmerColor="var(--color-amber-100)"
-          duration={1}
-          repeatDelay={1.5}
-        />
+          <Separator className="my-3 bg-emerald-900/20" />
+          <p className="font-bold text-2xl xl:text-3xl 2xl:text-4xl text-emerald-900/90">Lễ kỷ niệm chính thức</p>
+          <p className="font-light text-base xl:text-lg 2xl:text-xl text-emerald-900/90">30/03/2026</p>
+        </div>
       </div>
     </section>
   );

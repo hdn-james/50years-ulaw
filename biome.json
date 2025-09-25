@@ -7,19 +7,12 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "includes": [
-      "**",
-      "!node_modules",
-      "!.next",
-      "!out",
-      "!build",
-      "!next-env.d.ts"
-    ]
+    "includes": ["**", "!node_modules", "!.next", "!out", "!build", "!next-env.d.ts"]
   },
   "formatter": {
     "enabled": true,
     "indentStyle": "space",
-    "lineWidth": 80
+    "lineWidth": 120
   },
   "linter": {
     "enabled": true,
@@ -29,12 +22,19 @@
         "useSortedClasses": "warn"
       },
       "suspicious": {
-        "noUnknownAtRules": "off"
+        "noUnknownAtRules": "off",
+        "noArrayIndexKey": "off"
       },
       "correctness": {
         "useUniqueElementIds": "off"
       },
-      "a11y": { "noSvgWithoutTitle": "off" }
+      "a11y": {
+        "noSvgWithoutTitle": "off",
+        "useAriaPropsSupportedByRole": "off"
+      },
+      "performance": {
+        "noImgElement": "off"
+      }
     }
   },
   "javascript": {

@@ -1,30 +1,8 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { routes } from '@/constants';
-
 export const Header = () => {
   return (
-    <div className="bg-gradient-to-b from-teal-900 to-sky-950">
-      <div className="items-center-safe justify-center-safe container flex h-26 gap-6 text-[#F8F5F0]">
-        <Link href="" className="min-w-fit">
-          <Image
-            src="/logo.png"
-            alt="Logo"
-            width={39.5 * 1.5}
-            height={64 * 1.5}
-            className="ml-4 size-auto"
-          />
-        </Link>
-        {routes.map((route) => (
-          <Link
-            key={route.href}
-            className="text-center font-semibold uppercase transition-colors duration-300 hover:text-[#E6BE8A]"
-            href={route.href}
-          >
-            {route.name}
-          </Link>
-        ))}
-      </div>
-    </div>
+    <div
+      key="main-header"
+      className="fixed top-6 left-6 z-10 w-[calc(100dvw-3rem)] rounded-full bg-gradient-to-b from-sky-100/90 to-white/90 px-6 py-4 shadow-xl"
+    ></div>
   );
 };

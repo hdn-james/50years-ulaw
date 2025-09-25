@@ -1,13 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import {
-  type ElementType,
-  type ReactNode,
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
+import { type ElementType, type ReactNode, useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 
 export interface SvgTextProps {
@@ -117,8 +111,7 @@ export function SvgText({
               dominantBaseline="central"
               fill="white"
               style={{
-                fontSize:
-                  typeof fontSize === 'number' ? `${fontSize}px` : fontSize,
+                fontSize: typeof fontSize === 'number' ? `${fontSize}px` : fontSize,
                 fontWeight,
                 fontFamily: 'system-ui, -apple-system, sans-serif',
               }}
