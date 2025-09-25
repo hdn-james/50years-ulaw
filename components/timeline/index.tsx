@@ -8,6 +8,7 @@ import {
 import { ShimmeringText } from "../ui/shimmering-text";
 
 export const Timeline = () => {
+  console.log("timeline");
   return (
     <section className="py-10 relative">
       <div
