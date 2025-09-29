@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
-import { motion, MotionProps, useInView, UseInViewOptions, Variants } from 'motion/react';
+import { type MotionProps, motion, type UseInViewOptions, useInView, type Variants } from 'motion/react';
+import { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 
 type AnimationVariant =
@@ -157,7 +157,7 @@ export function TypingText({
           <motion.span
             variants={cursorVariants}
             animate="blinking"
-            className={cn('inline-block ms-1 font-normal text-foreground select-none w-px', cursorClassName)}
+            className={cn('ms-1 inline-block w-px select-none font-normal text-foreground', cursorClassName)}
           >
             {cursor}
           </motion.span>

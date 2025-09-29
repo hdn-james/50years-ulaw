@@ -1,112 +1,112 @@
-"use client";
+'use client';
 
-import { Accordion } from "@base-ui-components/react/accordion";
-import { cva, type VariantProps } from "class-variance-authority";
-import { ChevronDown, Plus } from "lucide-react";
-import * as React from "react";
-import { cn } from "@/lib/utils";
+import { Accordion } from '@base-ui-components/react/accordion';
+import { cva, type VariantProps } from 'class-variance-authority';
+import { ChevronDown, Plus } from 'lucide-react';
+import * as React from 'react';
+import { cn } from '@/lib/utils';
 
 // Variants
-const accordionRootVariants = cva("", {
+const accordionRootVariants = cva('', {
   variants: {
     variant: {
-      default: "",
-      outline: "space-y-2",
-      solid: "space-y-2",
+      default: '',
+      outline: 'space-y-2',
+      solid: 'space-y-2',
     },
   },
   defaultVariants: {
-    variant: "default",
+    variant: 'default',
   },
 });
 
-const accordionItemVariants = cva("", {
+const accordionItemVariants = cva('', {
   variants: {
     variant: {
-      default: "border-b border-border",
-      outline: "border border-border rounded-lg px-4",
-      solid: "rounded-lg bg-sky-100/70 px-4",
+      default: 'border-b border-border',
+      outline: 'border border-border rounded-lg px-4',
+      solid: 'rounded-lg bg-sky-100/70 px-4',
     },
   },
   defaultVariants: {
-    variant: "default",
+    variant: 'default',
   },
 });
 
-const accordionHeaderVariants = cva("flex", {
+const accordionHeaderVariants = cva('flex', {
   variants: {
     variant: {
-      default: "",
-      outline: "",
-      solid: "",
+      default: '',
+      outline: '',
+      solid: '',
     },
   },
   defaultVariants: {
-    variant: "default",
+    variant: 'default',
   },
 });
 
 const accordionTriggerVariants = cva(
-  "flex flex-1 items-center justify-between py-4 gap-2.5 text-foreground font-medium transition-all [&[data-panel-open]>svg]:rotate-180 cursor-pointer",
+  'flex flex-1 items-center justify-between py-4 gap-2.5 text-foreground font-medium transition-all [&[data-panel-open]>svg]:rotate-180 cursor-pointer',
   {
     variants: {
       variant: {
-        default: "",
-        outline: "",
-        solid: "",
+        default: '',
+        outline: '',
+        solid: '',
       },
       indicator: {
-        arrow: "",
-        plus: "[&>svg>path:last-child]:origin-center [&>svg>path:last-child]:transition-all [&>svg>path:last-child]:duration-200 [&[data-panel-open]>svg>path:last-child]:rotate-90 [&[data-panel-open]>svg>path:last-child]:opacity-0 [&[data-panel-open]>svg]:rotate-180",
-        none: "",
+        arrow: '',
+        plus: '[&>svg>path:last-child]:origin-center [&>svg>path:last-child]:transition-all [&>svg>path:last-child]:duration-200 [&[data-panel-open]>svg>path:last-child]:rotate-90 [&[data-panel-open]>svg>path:last-child]:opacity-0 [&[data-panel-open]>svg]:rotate-180',
+        none: '',
       },
     },
     defaultVariants: {
-      variant: "default",
-      indicator: "arrow",
+      variant: 'default',
+      indicator: 'arrow',
     },
   },
 );
 
 const accordionPanelVariants = cva(
-  "h-[var(--accordion-panel-height)] overflow-hidden text-sm text-accent-foreground transition-[height] ease-out data-[ending-style]:h-0 data-[starting-style]:h-0",
+  'h-[var(--accordion-panel-height)] overflow-hidden text-sm text-accent-foreground transition-[height] ease-out data-[ending-style]:h-0 data-[starting-style]:h-0',
   {
     variants: {
       variant: {
-        default: "",
-        outline: "",
-        solid: "",
+        default: '',
+        outline: '',
+        solid: '',
       },
     },
     defaultVariants: {
-      variant: "default",
+      variant: 'default',
     },
   },
 );
 
 // Context
 type AccordionContextType = {
-  variant?: "default" | "outline" | "solid";
-  indicator?: "arrow" | "plus" | "none";
+  variant?: 'default' | 'outline' | 'solid';
+  indicator?: 'arrow' | 'plus' | 'none';
 };
 
 const AccordionContext = React.createContext<AccordionContextType>({
-  variant: "default",
-  indicator: "arrow",
+  variant: 'default',
+  indicator: 'arrow',
 });
 
 // Base UI Accordion Root
 interface AccordionRootProps
   extends React.ComponentProps<typeof Accordion.Root>,
     VariantProps<typeof accordionRootVariants> {
-  indicator?: "arrow" | "plus" | "none";
+  indicator?: 'arrow' | 'plus' | 'none';
 }
 
 function AccordionRoot(props: AccordionRootProps) {
-  const { className, variant = "default", indicator = "arrow", children, ...rest } = props;
+  const { className, variant = 'default', indicator = 'arrow', children, ...rest } = props;
 
   return (
-    <AccordionContext.Provider value={{ variant: variant || "default", indicator }}>
+    <AccordionContext.Provider value={{ variant: variant || 'default', indicator }}>
       <Accordion.Root data-slot="accordion" className={cn(accordionRootVariants({ variant }), className)} {...rest}>
         {children}
       </Accordion.Root>
@@ -152,16 +152,16 @@ function AccordionTrigger(props: React.ComponentProps<typeof Accordion.Trigger> 
       data-slot="accordion-trigger"
       className={cn(
         accordionTriggerVariants({ variant, indicator }),
-        "font-normal text-md xl:text-xl text-white",
+        'font-normal text-md text-white xl:text-xl',
         className,
       )}
       {...rest}
     >
       {children}
-      {showIndicator && indicator === "plus" && (
+      {showIndicator && indicator === 'plus' && (
         <Plus className="size-4 shrink-0 transition-transform duration-200" strokeWidth={1} />
       )}
-      {showIndicator && indicator === "arrow" && (
+      {showIndicator && indicator === 'arrow' && (
         <ChevronDown className="size-4 shrink-0 text-white transition-transform duration-200" strokeWidth={2} />
       )}
     </Accordion.Trigger>
@@ -176,10 +176,10 @@ function AccordionPanel(props: React.ComponentProps<typeof Accordion.Panel>) {
   return (
     <Accordion.Panel
       data-slot="accordion-panel"
-      className={cn(accordionPanelVariants({ variant }), "font-normal text-sm xl:text-lg text-white", className)}
+      className={cn(accordionPanelVariants({ variant }), 'font-normal text-sm text-white xl:text-lg', className)}
       {...rest}
     >
-      <div className={cn("pt-0 pb-5")}>{children}</div>
+      <div className={cn('pt-0 pb-5')}>{children}</div>
     </Accordion.Panel>
   );
 }

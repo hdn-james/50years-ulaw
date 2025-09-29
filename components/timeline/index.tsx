@@ -4,27 +4,26 @@ import {
   AccordionItem,
   AccordionPanel,
   AccordionTrigger,
-} from "@/components/ui/base-accordion";
-import { ShimmeringText } from "../ui/shimmering-text";
+} from '@/components/ui/base-accordion';
+import { ShimmeringText } from '../ui/shimmering-text';
 
 export const Timeline = () => {
-  console.log("timeline");
   return (
-    <section className="py-10 relative">
+    <section className="relative py-10">
       <div
-        className="absolute h-full w-full -z-1 blur-md"
+        className="-z-1 absolute h-full w-full blur-md"
         style={{
           backgroundImage: 'url("/logo.png")',
-          backgroundBlendMode: "lighten",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
+          backgroundBlendMode: 'lighten',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
         }}
       ></div>
       <div className="container z-10">
         <ShimmeringText
           text="Tổng quan sự kiện"
-          className="font-bold text-2xl sm:text-4xl lg:text-5xl leading-normal tracking-wide"
+          className="font-bold text-2xl leading-normal tracking-wide sm:text-4xl lg:text-5xl"
           color="var(--color-sky-800)"
           shimmerColor="var(--color-sky-100)"
           duration={3}
@@ -32,9 +31,9 @@ export const Timeline = () => {
         />
         <Accordion
           variant="solid"
-          defaultValue={["truoc-le", "sau-le", "chinh-thuc"]}
+          defaultValue={['truoc-le', 'sau-le', 'chinh-thuc']}
           openMultiple={true}
-          className="mt-8 w-full max-w-5xl 2xl:max-w-7xl mx-auto"
+          className="mx-auto mt-8 w-full max-w-5xl 2xl:max-w-7xl"
         >
           <AccordionItem
             value="chinh-thuc"
@@ -49,8 +48,8 @@ export const Timeline = () => {
               </AccordionTrigger>
             </AccordionHeader>
             <AccordionPanel className="text-center text-white">
-              <p className="text-center font-bold text-lg xl:text-xl text-white">Ngày 30/3/2026</p>
-              <p className="mt-4 font-medium text-base xl:text-lg text-white">LỄ MITTING KỶ NIỆM 50 NĂM TRUYỀN THỐNG</p>
+              <p className="text-center font-bold text-lg text-white xl:text-xl">Ngày 30/3/2026</p>
+              <p className="mt-4 font-medium text-base text-white xl:text-lg">LỄ MITTING KỶ NIỆM 50 NĂM TRUYỀN THỐNG</p>
               <p className="mt-2 font-medium text-base xl:text-lg">
                 VÀ 30 NĂM NGÀY MANG TÊN TRƯỜNG ĐẠI HỌC LUẬT TP.HCM
               </p>

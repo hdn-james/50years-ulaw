@@ -1,14 +1,19 @@
-'use client';
-import { AnimatePresence, motion } from 'framer-motion';
-import { useEffect, useRef, useState } from 'react';
-import { steps } from '@/constants';
-import { cn } from '@/lib/utils';
+"use client";
+import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { steps } from "@/constants";
+import { cn } from "@/lib/utils";
+import { useMediaQuery } from "usehooks-ts";
+import { MobileVersion } from "./mobile";
 
 export function Message50Years() {
   const [activeIndex, setActiveIndex] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
+  const isMobile = useMediaQuery("(max-width: 768px)");
 
   useEffect(() => {
+    if (isMobile) return;
+
     const handleScroll = () => {
       if (!containerRef.current) return;
       const rect = containerRef.current.getBoundingClientRect();
@@ -28,17 +33,19 @@ export function Message50Years() {
       setActiveIndex(index);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  if (isMobile) return <MobileVersion />;
 
   return (
     <div ref={containerRef} className="container relative flex max-w-7xl">
       {/* Left column (text) */}
       <div className="sticky top-0 flex h-dvh w-3/5 flex-col items-center justify-center p-6">
-        <h2 className="absolute top-20 text-center font-bold text-2xl text-blue-800 md:text-3xl">
+        {/*<h2 className="absolute top-20 text-center font-bold text-2xl text-blue-800 md:text-3xl">
           Thông điệp 50 năm truyền thống
-        </h2>
+        </h2>*/}
         <AnimatePresence mode="wait">
           <motion.div
             key={activeIndex}
@@ -62,7 +69,7 @@ export function Message50Years() {
                   key={idx}
                   src={image}
                   alt={`Step ${i}`}
-                  className={cn('rounded-xl shadow-xl', i === 0 && 'rounded-none shadow-none')}
+                  className={cn("rounded-xl shadow-xl", i === 0 && "rounded-none shadow-none")}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 1 }}

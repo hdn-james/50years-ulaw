@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { TypingText } from "../ui/typing-text";
 import { Separator } from "../ui/separator";
+import { TypingText } from "../ui/typing-text";
 
 const texts = [
   {
@@ -23,31 +23,33 @@ const texts = [
 
 export const Impression = () => {
   return (
-    <section className="w-full h-dvh">
-      <div className="relative w-full h-dvh flex justify-center-safe items-center-safe">
+    <section className="h-dvh w-full">
+      <div className="justify-center-safe container items-center-safe relative flex h-dvh w-full">
         <Image
           src="/sinh-vien-tot-nghiep.webp"
           width={5472}
           height={3648}
           alt="Sinh viên tốt nghiệp"
-          className="absolute object-cover w-full h-full"
+          className="absolute h-full w-full object-cover"
         />
-        <div
-          className="h-[80dvh] sm:h-[70dvh] w-[90vw] sm:w-[60vw] items-center-safe justify-center-safe
-          bg-emerald-500/90 z-10 flex shadow-2xl rounded p-10"
-        >
+        <div className="items-center-safe justify-center-safe z-10 flex rounded bg-emerald-500/90 shadow-2xl px-10 py-20">
           <div className="flex flex-col gap-4">
             {texts.map((text, index) => (
               <div key={index} className="flex flex-col gap-2">
                 <TypingText
                   text={text.num}
-                  className="text-4xl font-bold font-mono text-white"
+                  className="font-bold font-mono text-[3vh] md:text-4xl leading-none text-white"
                   speed={30}
                   showCursor={false}
                 />
 
-                <TypingText text={text.text} className="text-xl font-bold  text-white" speed={30} showCursor={false} />
-                {index < texts.length - 1 && <Separator className="bg-white h-[2px]" />}
+                <TypingText
+                  text={text.text}
+                  className="font-medium text-white md:text-lg text-[1.5vh]"
+                  speed={30}
+                  showCursor={false}
+                />
+                {index < texts.length - 1 && <Separator className="h-[2px] bg-white" />}
               </div>
             ))}
           </div>
