@@ -23,15 +23,15 @@ const texts = [
 
 export const Impression = () => {
   return (
-    <section className="h-dvh w-screen">
+    <section className="">
+      <Image
+        src="/sinh-vien-tot-nghiep.webp"
+        width={5472}
+        height={3648}
+        alt="Sinh viên tốt nghiệp"
+        className="absolute h-dvh w-full object-cover"
+      />
       <div className="justify-center-safe container items-center-safe relative flex h-dvh w-screen">
-        <Image
-          src="/sinh-vien-tot-nghiep.webp"
-          width={5472}
-          height={3648}
-          alt="Sinh viên tốt nghiệp"
-          className="absolute h-full w-full object-cover"
-        />
         <div className="items-center-safe justify-center-safe z-10 flex rounded bg-emerald-500/90 shadow-2xl px-10 py-20">
           <div className="flex flex-col gap-4">
             {texts.map((text, index) => (

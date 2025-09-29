@@ -83,7 +83,7 @@ export const History = () => {
         <div className="flex w-10/12 flex-col justify-center gap-4 sm:w-9/10 sm:flex-row sm:items-center sm:gap-8">
           <div className="flex flex-wrap font-extrabold text-4xl sm:w-1/4">
             <SlidingNumber from={1996} to={2000} duration={4} className="font-extrabold text-4xl" digitHeight={40} />
-            <p>&#20;-&#20;nay</p>
+            <p>&nbsp;-&nbsp;nay</p>
           </div>
           <div className="font-light text-xl sm:w-3/4">
             Trường trở thành Trường Đại học Luật TP.HCM, trực thuộc Bộ Giáo dục và Đào tạo.
