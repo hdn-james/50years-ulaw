@@ -53,6 +53,7 @@ export function Message50Years() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -30 }}
             transition={{ duration: 0.6 }}
+            className="xl:text-2xl"
           >
             {steps[activeIndex].text}
           </motion.div>

@@ -23,7 +23,7 @@ export const steps = [
     key: "step2",
     text: (
       <>
-        <h3 className="mb-2 font-semibold text-2xl text-sky-800">50 năm ULAW</h3>
+        <h3 className="mb-2 font-semibold text-2xl xl:text-4xl text-sky-800">50 năm ULAW</h3>
         <p>
           Trường Đại học Luật Thành phố Hồ Chí Minh đã trải qua <strong>50 năm hình thành và phát triển</strong>. Con số
           50 năm là một dấu mốc quan trọng, thể hiện một nửa thế kỷ hình thành, cống hiến và trưởng thành. Đây là khoảng
@@ -37,7 +37,7 @@ export const steps = [
     key: "step3",
     text: (
       <>
-        <h3 className="mb-2 font-semibold text-2xl text-sky-800">Vững truyền thống</h3>
+        <h3 className="mb-2 font-semibold text-2xl xl:text-4xl text-sky-800">Vững truyền thống</h3>
         <p>
           Truyền thống là những giá trị cốt lõi, những nền tảng vững chắc mà ULAW đã xây dựng và gìn giữ trong suốt 50
           năm. Đó là:
@@ -72,7 +72,7 @@ export const steps = [
     key: "step4",
     text: (
       <>
-        <h3 className="mb-2 font-semibold text-2xl text-sky-800">Sáng tương lai</h3>
+        <h3 className="mb-2 font-semibold text-2xl xl:text-4xl text-sky-800">Sáng tương lai</h3>
         <p>
           Tương lai đề cập đến những mục tiêu, định hướng phát triển của ULAW trong giai đoạn tiếp theo. Đó là tầm nhìn
           về sự đổi mới, tiến bộ và thích ứng với những thay đổi của thời đại.
