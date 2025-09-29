@@ -1,13 +1,13 @@
-import { motion, stagger } from 'framer-motion';
-import { routes } from '@/constants';
-import { MenuItem } from './MenuItem';
+import { motion, stagger } from "framer-motion";
+import { routes } from "@/constants";
+import { MenuItem } from "./menu";
 
 const navVariants = {
   open: {
     transition: { delayChildren: stagger(0.07, { startDelay: 0.2 }) },
   },
   closed: {
-    transition: { delayChildren: stagger(0.05, { from: 'last' }) },
+    transition: { delayChildren: stagger(0.05, { from: "last" }) },
   },
 };
 
