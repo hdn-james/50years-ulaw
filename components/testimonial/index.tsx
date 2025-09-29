@@ -1,73 +1,72 @@
-'use client';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Card, CardContent } from '@/components/ui/card';
-import { Marquee } from '@/components/ui/marquee';
-import { ShimmeringText } from '../ui/shimmering-text';
+"use client";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Card, CardContent } from "@/components/ui/card";
+import { Marquee } from "@/components/ui/marquee";
 
 // Unique reviews data
 const testimonials = [
   {
-    name: 'Ava Green',
-    username: '@ava',
-    body: 'Cascade AI made my workflow 10x faster!',
-    img: 'https://randomuser.me/api/portraits/women/32.jpg',
-    country: '🇦🇺 Australia',
+    name: "Ava Green",
+    username: "@ava",
+    body: "Cascade AI made my workflow 10x faster!",
+    img: "https://randomuser.me/api/portraits/women/32.jpg",
+    country: "🇦🇺 Australia",
   },
   {
-    name: 'Ana Miller',
-    username: '@ana',
-    body: 'Vertical marquee is a game changer!',
-    img: 'https://randomuser.me/api/portraits/women/68.jpg',
-    country: '🇩🇪 Germany',
+    name: "Ana Miller",
+    username: "@ana",
+    body: "Vertical marquee is a game changer!",
+    img: "https://randomuser.me/api/portraits/women/68.jpg",
+    country: "🇩🇪 Germany",
   },
   {
-    name: 'Mateo Rossi',
-    username: '@mat',
-    body: 'Animations are buttery smooth!',
-    img: 'https://randomuser.me/api/portraits/men/51.jpg',
-    country: '🇮🇹 Italy',
+    name: "Mateo Rossi",
+    username: "@mat",
+    body: "Animations are buttery smooth!",
+    img: "https://randomuser.me/api/portraits/men/51.jpg",
+    country: "🇮🇹 Italy",
   },
   {
-    name: 'Maya Patel',
-    username: '@maya',
-    body: 'Setup was a breeze!',
-    img: 'https://randomuser.me/api/portraits/women/53.jpg',
-    country: '🇮🇳 India',
+    name: "Maya Patel",
+    username: "@maya",
+    body: "Setup was a breeze!",
+    img: "https://randomuser.me/api/portraits/women/53.jpg",
+    country: "🇮🇳 India",
   },
   {
-    name: 'Noah Smith',
-    username: '@noah',
-    body: 'Best marquee component!',
-    img: 'https://randomuser.me/api/portraits/men/33.jpg',
-    country: '🇺🇸 USA',
+    name: "Noah Smith",
+    username: "@noah",
+    body: "Best marquee component!",
+    img: "https://randomuser.me/api/portraits/men/33.jpg",
+    country: "🇺🇸 USA",
   },
   {
-    name: 'Lucas Stone',
-    username: '@luc',
-    body: 'Very customizable and smooth.',
-    img: 'https://randomuser.me/api/portraits/men/22.jpg',
-    country: '🇫🇷 France',
+    name: "Lucas Stone",
+    username: "@luc",
+    body: "Very customizable and smooth.",
+    img: "https://randomuser.me/api/portraits/men/22.jpg",
+    country: "🇫🇷 France",
   },
   {
-    name: 'Haruto Sato',
-    username: '@haru',
-    body: 'Impressive performance on mobile!',
-    img: 'https://randomuser.me/api/portraits/men/85.jpg',
-    country: '🇯🇵 Japan',
+    name: "Haruto Sato",
+    username: "@haru",
+    body: "Impressive performance on mobile!",
+    img: "https://randomuser.me/api/portraits/men/85.jpg",
+    country: "🇯🇵 Japan",
   },
   {
-    name: 'Emma Lee',
-    username: '@emma',
-    body: 'Love the pause on hover feature!',
-    img: 'https://randomuser.me/api/portraits/women/45.jpg',
-    country: '🇨🇦 Canada',
+    name: "Emma Lee",
+    username: "@emma",
+    body: "Love the pause on hover feature!",
+    img: "https://randomuser.me/api/portraits/women/45.jpg",
+    country: "🇨🇦 Canada",
   },
   {
-    name: 'Carlos Ray',
-    username: '@carl',
-    body: 'Great for testimonials and logos.',
-    img: 'https://randomuser.me/api/portraits/men/61.jpg',
-    country: '🇪🇸 Spain',
+    name: "Carlos Ray",
+    username: "@carl",
+    body: "Great for testimonials and logos.",
+    img: "https://randomuser.me/api/portraits/men/61.jpg",
+    country: "🇪🇸 Spain",
   },
 ];
 
@@ -97,14 +96,9 @@ export function Testimonials() {
   return (
     <section>
       <div className="container">
-        <ShimmeringText
-          text="Lời chúc và chia sẻ kỷ niệm về Trường ĐH Luật TP.HCM"
-          className="font-bold text-2xl leading-normal tracking-wide sm:text-4xl lg:text-5xl"
-          color="var(--color-sky-800)"
-          shimmerColor="var(--color-sky-100)"
-          duration={3}
-          repeatDelay={1.5}
-        />
+        <h2 className="font-bold text-2xl text-sky-800 leading-normal tracking-wide sm:text-4xl lg:text-5xl">
+          Lời chúc và chia sẻ kỷ niệm về Trường ĐH Luật TP.HCM
+        </h2>
       </div>
       <div className="relative flex w-full flex-col items-center justify-center gap-1 overflow-hidden py-8">
         {/* Marquee moving left to right (default) */}

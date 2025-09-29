@@ -1,14 +1,14 @@
 export const steps = [
   {
-    key: 'step1',
+    key: "step1",
     text: (
       <>
         <p>
-          Chủ đề của chuỗi chương trình kỷ niệm <strong>50 năm truyền thống</strong> và{' '}
+          Chủ đề của chuỗi chương trình kỷ niệm <strong>50 năm truyền thống</strong> và{" "}
           <strong>30 năm ngày mang tên Trường Đại học Luật Thành phố Hồ Chí Minh</strong> mang một thông điệp mạnh mẽ,
           vừa nhìn lại chặng đường lịch sử đầy tự hào (
-          <span className="font-semibold text-blue-700">50 năm vững truyền thống</span>) vừa định hướng cho một tương
-          lai phát triển rực rỡ và bền vững (<span className="font-semibold text-blue-700">sáng tương lai</span>
+          <span className="font-semibold text-sky-800">50 năm vững truyền thống</span>) vừa định hướng cho một tương lai
+          phát triển rực rỡ và bền vững (<span className="font-semibold text-sky-800">sáng tương lai</span>
           ).
         </p>
         <p className="mt-4">
@@ -17,13 +17,13 @@ export const steps = [
         </p>
       </>
     ),
-    img: ['/logo.png'],
+    img: ["/logo.png"],
   },
   {
-    key: 'step2',
+    key: "step2",
     text: (
       <>
-        <h3 className="mb-2 font-semibold text-2xl text-blue-700">50 năm ULAW</h3>
+        <h3 className="mb-2 font-semibold text-2xl text-sky-800">50 năm ULAW</h3>
         <p>
           Trường Đại học Luật Thành phố Hồ Chí Minh đã trải qua <strong>50 năm hình thành và phát triển</strong>. Con số
           50 năm là một dấu mốc quan trọng, thể hiện một nửa thế kỷ hình thành, cống hiến và trưởng thành. Đây là khoảng
@@ -31,13 +31,13 @@ export const steps = [
         </p>
       </>
     ),
-    img: ['/q4-old.webp', '/q4-new.webp'],
+    img: ["/q4-old.webp", "/q4-new.webp"],
   },
   {
-    key: 'step3',
+    key: "step3",
     text: (
       <>
-        <h3 className="mb-2 font-semibold text-2xl text-blue-700">Vững truyền thống</h3>
+        <h3 className="mb-2 font-semibold text-2xl text-sky-800">Vững truyền thống</h3>
         <p>
           Truyền thống là những giá trị cốt lõi, những nền tảng vững chắc mà ULAW đã xây dựng và gìn giữ trong suốt 50
           năm. Đó là:
@@ -66,13 +66,13 @@ export const steps = [
         </p>
       </>
     ),
-    img: ['/binh-trieu-new.webp', '/binh-trieu-old.webp'],
+    img: ["/binh-trieu-new.webp", "/binh-trieu-old.webp"],
   },
   {
-    key: 'step4',
+    key: "step4",
     text: (
       <>
-        <h3 className="mb-2 font-semibold text-2xl text-blue-700">Sáng tương lai</h3>
+        <h3 className="mb-2 font-semibold text-2xl text-sky-800">Sáng tương lai</h3>
         <p>
           Tương lai đề cập đến những mục tiêu, định hướng phát triển của ULAW trong giai đoạn tiếp theo. Đó là tầm nhìn
           về sự đổi mới, tiến bộ và thích ứng với những thay đổi của thời đại.
@@ -90,6 +90,6 @@ export const steps = [
         </ul>
       </>
     ),
-    img: ['/long-phuoc.webp'],
+    img: ["/long-phuoc.webp"],
   },
 ];

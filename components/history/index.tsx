@@ -1,7 +1,6 @@
 "use client";
 import { useMediaQuery } from "usehooks-ts";
 import { Separator } from "../ui/separator";
-import { ShimmeringText } from "../ui/shimmering-text";
 import { SlidingNumber } from "../ui/sliding-number";
 
 export const History = () => {
@@ -25,15 +24,9 @@ export const History = () => {
 
       {/* Content */}
       <div className="container relative z-20 h-full justify-start text-white">
-        <ShimmeringText
-          text="Lịch sử phát triển"
-          className="font-bold text-2xl leading-normal tracking-wide sm:text-4xl lg:text-5xl"
-          color="var(--color-sky-800)"
-          shimmerColor="var(--color-sky-100)"
-          duration={3}
-          repeatDelay={1.5}
-        />
-
+        <h2 className="font-bold text-2xl text-sky-800 leading-normal tracking-wide sm:text-4xl lg:text-5xl">
+          Lịch sử phát triển
+        </h2>
         <div className="mt-28 flex w-10/12 flex-col justify-center gap-4 sm:w-9/10 sm:flex-row sm:items-center sm:gap-8">
           <div className="sm:w-1/4">
             <SlidingNumber from={1976} to={1976} duration={1} className="font-extrabold text-4xl" digitHeight={40} />

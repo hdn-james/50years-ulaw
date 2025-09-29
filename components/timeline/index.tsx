@@ -4,8 +4,7 @@ import {
   AccordionItem,
   AccordionPanel,
   AccordionTrigger,
-} from '@/components/ui/base-accordion';
-import { ShimmeringText } from '../ui/shimmering-text';
+} from "@/components/ui/base-accordion";
 
 export const Timeline = () => {
   return (
@@ -14,24 +13,19 @@ export const Timeline = () => {
         className="-z-1 absolute h-full w-full blur-md"
         style={{
           backgroundImage: 'url("/logo.png")',
-          backgroundBlendMode: 'lighten',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
+          backgroundBlendMode: "lighten",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
         }}
       ></div>
       <div className="container z-10">
-        <ShimmeringText
-          text="Tổng quan sự kiện"
-          className="font-bold text-2xl leading-normal tracking-wide sm:text-4xl lg:text-5xl"
-          color="var(--color-sky-800)"
-          shimmerColor="var(--color-sky-100)"
-          duration={3}
-          repeatDelay={1.5}
-        />
+        <h2 className="font-bold text-2xl text-sky-800 leading-normal tracking-wide sm:text-4xl lg:text-5xl">
+          Tổng quan sự kiện
+        </h2>
         <Accordion
           variant="solid"
-          defaultValue={['truoc-le', 'sau-le', 'chinh-thuc']}
+          defaultValue={["truoc-le", "sau-le", "chinh-thuc"]}
           openMultiple={true}
           className="mx-auto mt-8 w-full max-w-5xl 2xl:max-w-7xl"
         >
@@ -42,7 +36,7 @@ export const Timeline = () => {
             <AccordionHeader className="justify-end">
               <AccordionTrigger
                 showIndicator={false}
-                className="justify-center text-right font-semibold text-white text-xl xl:text-2xl"
+                className="justify-center text-center font-semibold text-white text-xl xl:text-2xl"
               >
                 LỄ KỶ NIỆM CHÍNH THỨC (30/3/2026)
               </AccordionTrigger>
@@ -58,7 +52,7 @@ export const Timeline = () => {
 
           <AccordionItem value="truoc-le" className="rounded-3xl bg-sky-50/60">
             <AccordionHeader className="justify-end">
-              <AccordionTrigger className="justify-between text-right font-semibold text-emerald-700">
+              <AccordionTrigger className="justify-between text-left font-semibold text-emerald-700">
                 CHUỖI HOẠT ĐỘNG TRƯỚC LỄ KỶ NIỆM (TỪ THÁNG 7/2025 ĐẾN THÁNG 3/2026)
               </AccordionTrigger>
             </AccordionHeader>

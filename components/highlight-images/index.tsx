@@ -1,11 +1,10 @@
-'use client';
-import Image from 'next/image';
-import { useMediaQuery } from 'usehooks-ts';
-import { Marquee } from '@/components/ui/marquee';
-import { ShimmeringText } from '../ui/shimmering-text';
+"use client";
+import Image from "next/image";
+import { useMediaQuery } from "usehooks-ts";
+import { Marquee } from "@/components/ui/marquee";
 
 export const HighlightImages = () => {
-  const matches = useMediaQuery('(min-width: 768px)');
+  const matches = useMediaQuery("(min-width: 768px)");
   const mobileRender = (
     <>
       <Marquee vertical pauseOnHover repeat={100}>
@@ -77,14 +76,9 @@ export const HighlightImages = () => {
   return (
     <section className="pt-10">
       <div className="container">
-        <ShimmeringText
-          text="Những hình ảnh tiêu biểu"
-          className="font-bold text-2xl leading-normal tracking-wide sm:text-4xl lg:text-5xl"
-          color="var(--color-sky-800)"
-          shimmerColor="var(--color-sky-100)"
-          duration={3}
-          repeatDelay={1.5}
-        />
+        <h2 className="font-bold text-2xl text-sky-800 leading-normal tracking-wide sm:text-4xl lg:text-5xl">
+          Những hình ảnh tiêu biểu
+        </h2>
       </div>
       <div className="container relative mt-8 flex h-[600px] w-full items-center justify-center gap-2 overflow-hidden sm:h-[800px]">
         {matches ? desktopRender : mobileRender}

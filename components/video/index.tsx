@@ -1,17 +1,11 @@
-import { ShimmeringText } from '../ui/shimmering-text';
+import { ShimmeringText } from "../ui/shimmering-text";
 
 export const Video = () => {
   return (
     <section className="container">
-      <ShimmeringText
-        text="Phim tư liệu"
-        className="font-bold text-2xl leading-normal tracking-wide sm:text-4xl lg:text-5xl"
-        color="var(--color-sky-800)"
-        shimmerColor="var(--color-sky-100)"
-        duration={3}
-        repeatDelay={1.5}
-      />
-
+      <h2 className="font-bold text-2xl text-sky-800 leading-normal tracking-wide sm:text-4xl lg:text-5xl">
+        Phim tư liệu"
+      </h2>
       <div className="items-center-safe justify-center-safe flex">
         <iframe
           className="mt-10"
