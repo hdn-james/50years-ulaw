@@ -38,7 +38,7 @@ export const Timeline = () => {
                 showIndicator={false}
                 className="justify-center text-center font-semibold text-white text-xl xl:text-2xl"
               >
-                LỄ KỶ NIỆM CHÍNH THỨC (30/3/2026)
+                LỄ KỶ NIỆM CHÍNH THỨC
               </AccordionTrigger>
             </AccordionHeader>
             <AccordionPanel className="text-center text-white">
