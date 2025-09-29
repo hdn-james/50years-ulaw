@@ -23,8 +23,8 @@ const texts = [
 
 export const Impression = () => {
   return (
-    <section className="h-dvh w-full">
-      <div className="justify-center-safe container items-center-safe relative flex h-dvh w-full">
+    <section className="h-dvh w-screen">
+      <div className="justify-center-safe container items-center-safe relative flex h-dvh w-screen">
         <Image
           src="/sinh-vien-tot-nghiep.webp"
           width={5472}
