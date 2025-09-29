@@ -36,15 +36,17 @@ export const Timeline = () => {
             <AccordionHeader className="justify-end">
               <AccordionTrigger
                 showIndicator={false}
-                className="justify-center text-center font-semibold text-white text-xl xl:text-2xl"
+                className="justify-center text-center font-semibold text-white text-[4vw] sm:text-xl xl:text-2xl"
               >
                 LỄ KỶ NIỆM CHÍNH THỨC
               </AccordionTrigger>
             </AccordionHeader>
             <AccordionPanel className="text-center text-white">
-              <p className="text-center font-bold text-lg text-white xl:text-xl">Ngày 30/3/2026</p>
-              <p className="mt-4 font-medium text-base text-white xl:text-lg">LỄ MITTING KỶ NIỆM 50 NĂM TRUYỀN THỐNG</p>
-              <p className="mt-2 font-medium text-base xl:text-lg">
+              <p className="text-center font-bold text-[3.5vw] text-white xl:text-xl">Ngày 30/3/2026</p>
+              <p className="mt-4 font-medium text-[2.5vw] sm:text-base text-white xl:text-lg">
+                LỄ MITTING KỶ NIỆM 50 NĂM TRUYỀN THỐNG
+              </p>
+              <p className="mt-2 font-medium text-[2.5vw] sm:text-base xl:text-lg">
                 VÀ 30 NĂM NGÀY MANG TÊN TRƯỜNG ĐẠI HỌC LUẬT TP.HCM
               </p>
             </AccordionPanel>

@@ -42,7 +42,7 @@ export function Message50Years() {
   return (
     <div ref={containerRef} className="container relative flex max-w-7xl">
       {/* Left column (text) */}
-      <div className="sticky top-0 flex h-dvh w-3/5 flex-col items-center justify-center p-6">
+      <div className="sticky top-0 left-0 flex h-dvh w-3/5 flex-col items-center justify-center p-6">
         {/*<h2 className="absolute top-20 text-center font-bold text-2xl text-blue-800 md:text-3xl">
           Thông điệp 50 năm truyền thống
         </h2>*/}
@@ -63,7 +63,7 @@ export function Message50Years() {
       <div className="w-2/5">
         {steps.map((step, i) => (
           <div key={step.key} className="flex h-dvh items-center justify-center">
-            <div className="flex flex-col items-center justify-center gap-4">
+            <div className="flex flex-col items-center-safe justify-center-safe gap-4">
               {step.img.map((image, idx) => (
                 <motion.img
                   key={idx}
