@@ -22,17 +22,17 @@ export const metadata: Metadata = {
     title: "Kỷ niệm 50 năm ULAW (1976–2026) – Trường Đại học Luật TP.HCM",
     description:
       "Chuỗi chương trình kỷ niệm 50 năm truyền thống và 30 năm ngày mang tên Trường Đại học Luật Thành phố Hồ Chí Minh, vừa nhìn lại chặng đường lịch sử đầy tự hào vừa định hướng cho một tương lai phát triển rực rỡ và bền vững.",
-    url: "https://ulaw50.hcmulaw.edu.vn",
+    url: "https://50-nam-ulaw.huynhdainhan.work",
     siteName: "ULAW 50 Years",
     images: [
       {
-        url: "https://ulaw50.hcmulaw.edu.vn/og-image.png",
+        url: "https://50-nam-ulaw.huynhdainhan.work/og-image.png",
         width: 1200,
         height: 630,
         alt: "Logo Kỷ niệm 50 năm ULAW – Trường Đại học Luật TP.HCM",
       },
       {
-        url: "https://ulaw50.hcmulaw.edu.vn/og-image-square.png",
+        url: "https://50-nam-ulaw.huynhdainhan.work/og-image-square.png",
         width: 800,
         height: 800,
         alt: "Logo Kỷ niệm 50 năm ULAW – Trường Đại học Luật TP.HCM (Square)",
@@ -46,12 +46,15 @@ export const metadata: Metadata = {
     title: "Kỷ niệm 50 năm ULAW (1976–2026) – Trường Đại học Luật TP.HCM",
     description:
       "Chuỗi chương trình kỷ niệm 50 năm truyền thống và 30 năm ngày mang tên Trường Đại học Luật Thành phố Hồ Chí Minh, vừa nhìn lại chặng đường lịch sử đầy tự hào vừa định hướng cho một tương lai phát triển rực rỡ và bền vững.",
-    images: ["https://ulaw50.hcmulaw.edu.vn/og-image.png", "https://ulaw50.hcmulaw.edu.vn/og-image-square.png"],
+    images: [
+      "https://50-nam-ulaw.huynhdainhan.work/og-image.png",
+      "https://50-nam-ulaw.huynhdainhan.work/og-image-square.png",
+    ],
     creator: "@ulawhcmc",
     site: "@ulawhcmc",
   },
   alternates: {
-    canonical: "https://ulaw50.hcmulaw.edu.vn",
+    canonical: "https://50-nam-ulaw.huynhdainhan.work",
   },
   themeColor: "#009688",
   robots: {
