@@ -1,0 +1,27 @@
+{
+  "name": "Kỷ niệm 50 năm ULAW",
+  "short_name": "ULAW 50",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#009688",
+  "description": "Chuỗi chương trình kỷ niệm 50 năm truyền thống và 30 năm ngày mang tên Trường Đại học Luật Thành phố Hồ Chí Minh, vừa nhìn lại chặng đường lịch sử đầy tự hào vừa định hướng cho một tương lai phát triển rực rỡ và bền vững.",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
