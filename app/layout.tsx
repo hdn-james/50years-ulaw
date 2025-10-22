@@ -95,6 +95,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="vi">
+      <head>
+        <link rel="preconnect" href="https://www.youtube.com" />
+        <link rel="preconnect" href="https://i.ytimg.com" />
+      </head>
       <body className={cn(roboto.className, "text-base antialiased")}>
         <main>{children}</main>
       </body>
