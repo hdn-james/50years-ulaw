@@ -1,10 +1,14 @@
 "use client";
 import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
+
 import { useEffect, useRef, useState } from "react";
 import { steps } from "@/constants";
 import { cn } from "@/lib/utils";
 import { useMediaQuery } from "usehooks-ts";
 import { MobileVersion } from "./mobile";
+
+const MotionImage = motion(Image);
 
 export function Message50Years() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -66,14 +70,17 @@ export function Message50Years() {
           <div key={step.key} className="flex h-dvh items-center justify-center">
             <div className="flex flex-col items-center-safe justify-center-safe gap-4">
               {step.img.map((image, idx) => (
-                <motion.img
+                <MotionImage
                   key={idx}
                   src={image}
                   alt={`Step ${i}`}
+                  width={499}
+                  height={333}
                   className={cn("rounded-xl shadow-xl", i === 0 && "rounded-none shadow-none")}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 1 }}
+                  sizes="(max-width: 600px) 100vw, 499px"
                 />
               ))}
             </div>
