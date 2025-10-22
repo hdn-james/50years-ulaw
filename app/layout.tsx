@@ -63,7 +63,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://50-nam-ulaw.huynhdainhan.work",
   },
-  themeColor: "#009688",
+
   robots: {
     index: true,
     follow: true,
@@ -86,6 +86,10 @@ export const metadata: Metadata = {
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
   manifest: "/site.webmanifest",
+};
+
+export const viewport = {
+  themeColor: "#009688",
 };
 
 export default function RootLayout({

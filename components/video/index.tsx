@@ -9,13 +9,15 @@ export const Video = () => {
         Phim tư liệu
       </h2>
       <div className="items-center-safe justify-center-safe flex">
-        <div className="mt-10">
+        <div className="mt-10 w-[560px]">
           <LiteYouTubeEmbed
             id="oLJEwypl6_s"
             title="YouTube video player"
-            params="autoplay=1"
+            playlist={false}
             poster="hqdefault"
-            webp={true}
+            cookie={false}
+            webp
+            adNetwork={false}
           />
         </div>
       </div>
