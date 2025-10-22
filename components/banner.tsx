@@ -7,7 +7,15 @@ export const Banner = () => {
     <section className="relative flex h-dvh snap-start snap-always items-center justify-center">
       <div className="container grid gap-8 md:grid-cols-2 md:gap-0">
         <div className="justify-center-safe items-center-safe flex">
-          <Image src="/logo.png" width={395} height={640} alt="Banner" className="h-auto w-2/3" fetchPriority="high" />
+          <Image
+            src="/logo.png"
+            width={395}
+            height={640}
+            alt="Banner"
+            className="h-auto w-2/3"
+            loading="eager"
+            fetchPriority="high"
+          />
         </div>
         <div className="justify-center-safe flex flex-col items-start space-y-2 px-4 sm:items-center md:items-start">
           <h1>
