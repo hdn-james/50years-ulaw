@@ -26,10 +26,12 @@ export const Impression = () => {
     <section className="">
       <Image
         src="/sinh-vien-tot-nghiep.webp"
-        width={5472}
-        height={3648}
+        width={1920}
+        height={1080}
         alt="Sinh viên tốt nghiệp"
         className="absolute h-dvh w-full object-cover"
+        sizes="100vw"
+        priority
       />
       <div className="justify-center-safe container items-center-safe relative flex h-dvh w-screen">
         <div className="items-center-safe justify-center-safe z-10 flex rounded bg-emerald-500/90 shadow-2xl px-10 py-20">

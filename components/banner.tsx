@@ -1,13 +1,21 @@
-import Image from 'next/image';
-import { ShimmeringText } from '@/components/ui/shimmering-text';
-import { Separator } from './ui/separator';
+import Image from "next/image";
+import { ShimmeringText } from "@/components/ui/shimmering-text";
+import { Separator } from "./ui/separator";
 
 export const Banner = () => {
   return (
     <section className="relative flex h-dvh snap-start snap-always items-center justify-center">
       <div className="container grid gap-8 md:grid-cols-2 md:gap-0">
         <div className="justify-center-safe items-center-safe flex">
-          <Image src="/logo.png" width={39.5 * 10} height={64 * 10} alt="Banner" className="h-auto w-2/3" />
+          <Image
+            src="/logo.png"
+            width={395}
+            height={640}
+            alt="Banner"
+            className="h-auto w-2/3"
+            loading="lazy"
+            fetchPriority="high"
+          />
         </div>
         <div className="justify-center-safe flex flex-col items-start space-y-2 px-4 sm:items-center md:items-start">
           <h1>

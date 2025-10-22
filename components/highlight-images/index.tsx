@@ -34,8 +34,9 @@ export const HighlightImages = () => {
           key={startIdx + idx}
           src={`/tieu-bieu/img_${startIdx + idx}.webp`}
           alt={`Image ${startIdx + idx}`}
-          width={1000}
-          height={1000}
+          width={256}
+          height={256}
+          sizes="(max-width: 768px) 100vw, 256px"
           className="w-64 rounded-lg object-cover shadow-lg"
         />
       ))}

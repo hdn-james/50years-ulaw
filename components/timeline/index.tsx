@@ -8,7 +8,7 @@ import {
 
 export const Timeline = () => {
   return (
-    <section id="tong-quan-su-kien" className="relative py-10">
+    <section id="tong-quan-su-kien" className="relative py-10 min-h-[400px]">
       <div
         className="-z-1 absolute h-full w-full blur-md"
         style={{

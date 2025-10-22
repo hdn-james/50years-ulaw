@@ -95,7 +95,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="vi">
-      <body className={cn(roboto.className, "text-base antialiased")}>{children}</body>
+      <body className={cn(roboto.className, "text-base antialiased")}>
+        <main>{children}</main>
+      </body>
     </html>
   );
 }

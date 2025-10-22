@@ -47,6 +47,7 @@ export const MenuToggle = ({ toggle }: { toggle: () => void }) => (
   <button
     className="absolute top-[30px] left-[29px] z-[9999] cursor-pointer rounded-full border-none bg-transparent text-emerald-800 outline-none"
     onClick={toggle}
+    aria-label="Open navigation menu"
   >
     <svg width="23" height="23" viewBox="0 0 23 23">
       <Path
