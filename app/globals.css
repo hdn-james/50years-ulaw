@@ -91,6 +91,15 @@
     --radius-md: calc(var(--radius) - 2px);
     --radius-sm: calc(var(--radius) - 4px);
 
+    --color-ulaw-green: oklch(0.66 0.19 180);
+    --color-ulaw-teal: oklch(0.6 0.18 180);
+    --color-ulaw-light: oklch(0.72 0.18 180);
+    --color-ulaw-blue: oklch(0.52 0.18 250);
+    --color-ulaw-blue2: oklch(0.62 0.18 250);
+    --color-ulaw-dark: oklch(0.4 0.18 250);
+    --color-ulaw-purple: oklch(0.62 0.18 320);
+    --color-ulaw-navy: oklch(0.23 0.05 250);
+
     --animate-marquee: marquee var(--duration) infinite linear;
     --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
 

@@ -12,7 +12,7 @@ export const Timeline = () => {
       <div
         className="-z-1 absolute h-full w-full blur-md"
         style={{
-          backgroundImage: 'url("/logo.png")',
+          backgroundImage: 'url("/logo.webp")',
           backgroundBlendMode: "lighten",
           backgroundSize: "cover",
           backgroundPosition: "center",
@@ -20,7 +20,7 @@ export const Timeline = () => {
         }}
       ></div>
       <div className="container z-10">
-        <h2 className="font-bold text-2xl text-sky-800 leading-normal tracking-wide sm:text-4xl lg:text-5xl">
+        <h2 className="font-bold text-2xl text-ulaw-blue leading-normal tracking-wide sm:text-4xl lg:text-5xl">
           Tổng quan sự kiện
         </h2>
         <Accordion

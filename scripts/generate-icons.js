@@ -3,7 +3,7 @@ const path = require("path");
 const fs = require("fs");
 const pngToIco = require("png-to-ico").default;
 
-const source = path.join(__dirname, "../public/logo.png");
+const source = path.join(__dirname, "../public/logo.webp");
 
 const icons = [
   { name: "favicon-32.png", size: 32, format: "png" },

@@ -18,13 +18,13 @@ export const History = () => {
           viewBox="0 0 1440 800"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <path fill="var(--color-sky-600)" d={dPath} />
+          <path fill="var(--color-ulaw-blue2)" d={dPath} />
         </svg>
       </div>
 
       {/* Content */}
       <div className="container relative z-20 h-full justify-start text-white">
-        <h2 className="font-bold text-2xl text-sky-800 leading-normal tracking-wide sm:text-4xl lg:text-5xl">
+        <h2 className="font-bold text-2xl text-ulaw-blue leading-normal tracking-wide sm:text-4xl lg:text-5xl">
           Lịch sử phát triển
         </h2>
         <div className="mt-28 flex w-10/12 flex-col justify-center gap-4 sm:w-9/10 sm:flex-row sm:items-center sm:gap-8">

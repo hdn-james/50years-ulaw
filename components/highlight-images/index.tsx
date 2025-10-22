@@ -17,7 +17,7 @@ export const HighlightImages = () => {
     return (
       <section id="thu-vien-anh" className="pt-10">
         <div className="container">
-          <h2 className="font-bold text-2xl text-sky-800 leading-normal tracking-wide sm:text-4xl lg:text-5xl">
+          <h2 className="font-bold text-2xl text-ulaw-blue leading-normal tracking-wide sm:text-4xl lg:text-5xl">
             Những hình ảnh tiêu biểu
           </h2>
         </div>
@@ -35,9 +35,9 @@ export const HighlightImages = () => {
           src={`/tieu-bieu/img_${startIdx + idx}.webp`}
           alt={`Image ${startIdx + idx}`}
           width={256}
-          height={256}
+          height={144}
           sizes="(max-width: 768px) 100vw, 256px"
-          className="w-64 rounded-lg object-cover shadow-lg"
+          className="w-64 h-auto rounded-lg object-cover shadow-lg aspect-video"
         />
       ))}
     </Marquee>
@@ -60,7 +60,7 @@ export const HighlightImages = () => {
   return (
     <section id="thu-vien-anh" className="pt-10">
       <div className="container">
-        <h2 className="font-bold text-2xl text-sky-800 leading-normal tracking-wide sm:text-4xl lg:text-5xl">
+        <h2 className="font-bold text-2xl text-ulaw-blue leading-normal tracking-wide sm:text-4xl lg:text-5xl">
           Những hình ảnh tiêu biểu
         </h2>
       </div>

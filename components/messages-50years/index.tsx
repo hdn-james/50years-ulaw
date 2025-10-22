@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 import { useMediaQuery } from "usehooks-ts";
 import { MobileVersion } from "./mobile";
 
-const MotionImage = motion(Image);
+const MotionImage = motion.create(Image);
 
 export function Message50Years() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -57,7 +57,7 @@ export function Message50Years() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -30 }}
             transition={{ duration: 0.6 }}
-            className="xl:text-2xl"
+            className="xl:text-2xl text-ulaw-navy"
           >
             {steps[activeIndex].text}
           </motion.div>

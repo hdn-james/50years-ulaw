@@ -33,7 +33,7 @@ export const Impression = () => {
         sizes="100vw"
       />
       <div className="justify-center-safe container items-center-safe relative flex h-dvh w-screen">
-        <div className="items-center-safe justify-center-safe z-10 flex rounded bg-emerald-500/90 shadow-2xl px-10 py-20">
+        <div className="items-center-safe justify-center-safe z-10 flex rounded bg-ulaw-light/90 shadow-2xl px-10 py-20">
           <div className="flex flex-col gap-4">
             {texts.map((text, index) => (
               <div key={index} className="flex flex-col gap-2">

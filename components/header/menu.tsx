@@ -8,7 +8,7 @@ interface PathProps {
 }
 
 const Path = (props: PathProps) => (
-  <motion.path fill="transparent" strokeWidth="3" stroke="var(--color-emerald-800)" strokeLinecap="round" {...props} />
+  <motion.path fill="transparent" strokeWidth="3" stroke="var(--color-ulaw-blue2)" strokeLinecap="round" {...props} />
 );
 
 const itemVariants = {
@@ -31,7 +31,7 @@ const itemVariants = {
 export const MenuItem = ({ content, href, onClick }: { content: ReactNode; href: string; onClick?: () => void }) => {
   return (
     <motion.li
-      className="m-0 mb-5 flex cursor-pointer justify-self-start p-0 font-semibold text-emerald-700 text-xl"
+      className="m-0 mb-5 flex cursor-pointer justify-self-start p-0 font-semibold text-ulaw-blue2 text-xl"
       variants={itemVariants}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
@@ -45,7 +45,7 @@ export const MenuItem = ({ content, href, onClick }: { content: ReactNode; href:
 
 export const MenuToggle = ({ toggle }: { toggle: () => void }) => (
   <button
-    className="absolute top-[30px] left-[29px] z-[9999] cursor-pointer rounded-full border-none bg-transparent text-emerald-800 outline-none"
+    className="absolute top-[30px] left-[29px] z-[9999] cursor-pointer rounded-full border-none bg-transparent text-ulaw-blue2 outline-none"
     onClick={toggle}
     aria-label="Open navigation menu"
   >

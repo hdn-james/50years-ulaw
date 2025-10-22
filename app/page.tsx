@@ -1,15 +1,24 @@
-import { Activities } from "@/components/activities";
 import { Banner } from "@/components/banner";
-import { Header } from "@/components/header";
-import { HighlightImages } from "@/components/highlight-images";
-import { History } from "@/components/history";
-import { Impression } from "@/components/impression";
-import { Memories } from "@/components/memories";
-import { Message50Years } from "@/components/messages-50years";
-import { Testimonials } from "@/components/testimonial";
-import { Timeline } from "@/components/timeline";
 import { GradientBackground } from "@/components/ui/gradient-background";
-import { Video } from "@/components/video";
+import { Header } from "@/components/header";
+import dynamic from "next/dynamic";
+
+const Activities = dynamic(() => import("@/components/activities").then((mod) => mod.Activities));
+const HighlightImages = dynamic(() => import("@/components/highlight-images").then((mod) => mod.HighlightImages));
+
+const History = dynamic(() => import("@/components/history").then((mod) => mod.History));
+
+const Impression = dynamic(() => import("@/components/impression").then((mod) => mod.Impression));
+
+const Memories = dynamic(() => import("@/components/memories").then((mod) => mod.Memories));
+
+const Message50Years = dynamic(() => import("@/components/messages-50years").then((mod) => mod.Message50Years));
+
+const Testimonials = dynamic(() => import("@/components/testimonial").then((mod) => mod.Testimonials));
+
+const Timeline = dynamic(() => import("@/components/timeline").then((mod) => mod.Timeline));
+
+const Video = dynamic(() => import("@/components/video").then((mod) => mod.Video));
 
 export default function Home() {
   return (

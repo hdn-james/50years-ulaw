@@ -96,7 +96,7 @@ export function Testimonials() {
   return (
     <section>
       <div className="container">
-        <h2 className="font-bold text-2xl text-sky-800 leading-normal tracking-wide sm:text-4xl lg:text-5xl">
+        <h2 className="font-bold text-2xl text-ulaw-blue leading-normal tracking-wide sm:text-4xl lg:text-5xl">
           Lời chúc và chia sẻ kỷ niệm về Trường ĐH Luật TP.HCM
         </h2>
       </div>

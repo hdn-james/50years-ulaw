@@ -3,7 +3,7 @@ const path = require("path");
 const fs = require("fs");
 
 // Source logo path (update if needed)
-const source = path.join(__dirname, "../public/logo.png"); // <-- Change 'logo.png' to your actual filename
+const source = path.join(__dirname, "../public/logo.webp"); // <-- Change 'logo.webp' to your actual filename
 
 // Output paths
 const outputOg = path.join(__dirname, "../public/og-image.png");

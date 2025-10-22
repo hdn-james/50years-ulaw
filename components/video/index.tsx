@@ -5,7 +5,7 @@ import "react-lite-youtube-embed/dist/LiteYouTubeEmbed.css";
 export const Video = () => {
   return (
     <section id="phim-tai-lieu" className="container">
-      <h2 className="font-bold text-2xl text-sky-800 leading-normal tracking-wide sm:text-4xl lg:text-5xl">
+      <h2 className="font-bold text-2xl text-ulaw-blue leading-normal tracking-wide sm:text-4xl lg:text-5xl">
         Phim tư liệu
       </h2>
       <div className="items-center-safe justify-center-safe flex">
