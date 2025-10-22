@@ -1,4 +1,3 @@
-import { ShimmeringText } from "../ui/shimmering-text";
 import LiteYouTubeEmbed from "react-lite-youtube-embed";
 import "react-lite-youtube-embed/dist/LiteYouTubeEmbed.css";
 
