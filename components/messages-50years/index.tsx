@@ -40,7 +40,7 @@ export function Message50Years() {
   if (isMobile) return <MobileVersion />;
 
   return (
-    <div ref={containerRef} className="container relative flex max-w-7xl">
+    <div ref={containerRef} id="le-meeting-ky-niem-50-nam" className="container relative flex max-w-7xl">
       {/* Left column (text) */}
       <div className="sticky top-0 left-0 flex h-dvh w-3/5 flex-col items-center justify-center p-6">
         {/*<h2 className="absolute top-20 text-center font-bold text-2xl text-blue-800 md:text-3xl">

@@ -8,7 +8,7 @@ import {
 
 export const Timeline = () => {
   return (
-    <section className="relative py-10">
+    <section id="tong-quan-su-kien" className="relative py-10">
       <div
         className="-z-1 absolute h-full w-full blur-md"
         style={{
@@ -44,7 +44,7 @@ export const Timeline = () => {
             <AccordionPanel className="text-center text-white">
               <p className="text-center font-bold text-[3.5vw] text-white xl:text-xl">Ngày 30/3/2026</p>
               <p className="mt-4 font-medium text-[2.5vw] sm:text-base text-white xl:text-lg">
-                LỄ MITTING KỶ NIỆM 50 NĂM TRUYỀN THỐNG
+                LỄ MEETING KỶ NIỆM 50 NĂM TRUYỀN THỐNG
               </p>
               <p className="mt-2 font-medium text-[2.5vw] sm:text-base xl:text-lg">
                 VÀ 30 NĂM NGÀY MANG TÊN TRƯỜNG ĐẠI HỌC LUẬT TP.HCM

@@ -28,7 +28,7 @@ const itemVariants = {
   },
 };
 
-export const MenuItem = ({ content }: { content: ReactNode }) => {
+export const MenuItem = ({ content, href, onClick }: { content: ReactNode; href: string; onClick?: () => void }) => {
   return (
     <motion.li
       className="m-0 mb-5 flex cursor-pointer justify-self-start p-0 font-semibold text-emerald-700 text-xl"
@@ -36,7 +36,9 @@ export const MenuItem = ({ content }: { content: ReactNode }) => {
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
     >
-      <div>{content}</div>
+      <a href={href} onClick={onClick} className="block w-full">
+        {content}
+      </a>
     </motion.li>
   );
 };

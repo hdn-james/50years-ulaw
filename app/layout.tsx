@@ -1,5 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Roboto } from "next/font/google";
+import { cn } from "@/lib/utils";
+
+const roboto = Roboto({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+});
 
 export const metadata: Metadata = {
   title: "Kỷ niệm 50 năm ULAW (1976–2026) – Trường Đại học Luật TP.HCM",
@@ -88,7 +95,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="vi">
-      <body className='"text-base antialiased"'>{children}</body>
+      <body className={cn(roboto.className, "text-base antialiased")}>{children}</body>
     </html>
   );
 }

@@ -1,80 +1,63 @@
 "use client";
 import Image from "next/image";
+import { useState, useEffect } from "react";
 import { useMediaQuery } from "usehooks-ts";
 import { Marquee } from "@/components/ui/marquee";
 
 export const HighlightImages = () => {
+  const [mounted, setMounted] = useState(false);
   const matches = useMediaQuery("(min-width: 768px)");
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Prevent hydration mismatch by waiting for client-side mount
+  if (!mounted) {
+    return (
+      <section id="thu-vien-anh" className="pt-10">
+        <div className="container">
+          <h2 className="font-bold text-2xl text-sky-800 leading-normal tracking-wide sm:text-4xl lg:text-5xl">
+            Những hình ảnh tiêu biểu
+          </h2>
+        </div>
+        <div className="container relative mt-8 flex h-[600px] w-full items-center justify-center gap-2 overflow-hidden sm:h-[800px]">
+          {/* Loading state */}
+        </div>
+      </section>
+    );
+  }
+  const renderMarquee = (startIdx: number, count: number, reverse = false) => (
+    <Marquee vertical pauseOnHover reverse={reverse} repeat={100}>
+      {new Array(count).fill(1).map((_, idx) => (
+        <Image
+          key={startIdx + idx}
+          src={`/tieu-bieu/img_${startIdx + idx}.webp`}
+          alt={`Image ${startIdx + idx}`}
+          width={1000}
+          height={1000}
+          className="w-64 rounded-lg object-cover shadow-lg"
+        />
+      ))}
+    </Marquee>
+  );
+
   const mobileRender = (
     <>
-      <Marquee vertical pauseOnHover repeat={100}>
-        {new Array(20).fill(1).map((_, idx) => (
-          <Image
-            key={idx + 1}
-            src={`/tieu-bieu/img_${idx + 1}.webp`}
-            alt={`Image ${idx + 1}`}
-            width={1000}
-            height={1000}
-            className="w-64 rounded-lg object-cover shadow-lg"
-          />
-        ))}
-      </Marquee>
-      <Marquee vertical pauseOnHover reverse repeat={100}>
-        {new Array(21).fill(1).map((_, idx) => (
-          <Image
-            key={idx + 20}
-            src={`/tieu-bieu/img_${idx + 20}.webp`}
-            alt={`Image ${idx + 1}`}
-            width={1000}
-            height={1000}
-            className="w-64 rounded-lg object-cover shadow-lg"
-          />
-        ))}
-      </Marquee>
+      {renderMarquee(1, 20)}
+      {renderMarquee(20, 21, true)}
     </>
   );
+
   const desktopRender = (
     <>
-      <Marquee vertical pauseOnHover repeat={100}>
-        {new Array(14).fill(1).map((_, idx) => (
-          <Image
-            key={idx + 1}
-            src={`/tieu-bieu/img_${idx + 1}.webp`}
-            alt={`Image ${idx + 1}`}
-            width={1000}
-            height={1000}
-            className="w-64 rounded-lg object-cover shadow-lg"
-          />
-        ))}
-      </Marquee>
-      <Marquee vertical pauseOnHover reverse repeat={100}>
-        {new Array(14).fill(1).map((_, idx) => (
-          <Image
-            key={idx + 14}
-            src={`/tieu-bieu/img_${idx + 14}.webp`}
-            alt={`Image ${idx + 1}`}
-            width={1000}
-            height={1000}
-            className="w-64 rounded-lg object-cover shadow-lg"
-          />
-        ))}
-      </Marquee>
-      <Marquee vertical pauseOnHover repeat={100}>
-        {new Array(13).fill(1).map((_, idx) => (
-          <Image
-            key={idx + 28}
-            src={`/tieu-bieu/img_${idx + 28}.webp`}
-            alt={`Image ${idx + 1}`}
-            width={1000}
-            height={1000}
-            className="w-64 rounded-lg object-cover shadow-lg"
-          />
-        ))}
-      </Marquee>
+      {renderMarquee(1, 14)}
+      {renderMarquee(14, 14, true)}
+      {renderMarquee(28, 13)}
     </>
   );
   return (
-    <section className="pt-10">
+    <section id="thu-vien-anh" className="pt-10">
       <div className="container">
         <h2 className="font-bold text-2xl text-sky-800 leading-normal tracking-wide sm:text-4xl lg:text-5xl">
           Những hình ảnh tiêu biểu

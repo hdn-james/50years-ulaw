@@ -2,7 +2,7 @@ import { ShimmeringText } from "../ui/shimmering-text";
 
 export const Video = () => {
   return (
-    <section className="container">
+    <section id="phim-tai-lieu" className="container">
       <h2 className="font-bold text-2xl text-sky-800 leading-normal tracking-wide sm:text-4xl lg:text-5xl">
         Phim tư liệu
       </h2>

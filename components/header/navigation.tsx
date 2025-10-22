@@ -11,10 +11,10 @@ const navVariants = {
   },
 };
 
-export const Navigation = () => (
+export const Navigation = ({ toggleOpen }: { toggleOpen: () => void }) => (
   <motion.ul className="absolute top-20 left-6 z-[9999] m-0 list-none p-6" variants={navVariants}>
     {routes.map((route) => (
-      <MenuItem key={route.href} content={route.name} />
+      <MenuItem key={route.href} content={route.name} href={route.href} onClick={toggleOpen} />
     ))}
   </motion.ul>
 );
