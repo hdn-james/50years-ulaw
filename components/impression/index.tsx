@@ -31,7 +31,6 @@ export const Impression = () => {
         alt="Sinh viên tốt nghiệp"
         className="absolute h-dvh w-full object-cover"
         sizes="100vw"
-        priority
       />
       <div className="justify-center-safe container items-center-safe relative flex h-dvh w-screen">
         <div className="items-center-safe justify-center-safe z-10 flex rounded bg-emerald-500/90 shadow-2xl px-10 py-20">

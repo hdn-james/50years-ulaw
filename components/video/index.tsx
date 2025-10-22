@@ -1,4 +1,6 @@
 import { ShimmeringText } from "../ui/shimmering-text";
+import LiteYouTubeEmbed from "react-lite-youtube-embed";
+import "react-lite-youtube-embed/dist/LiteYouTubeEmbed.css";
 
 export const Video = () => {
   return (
@@ -7,17 +9,15 @@ export const Video = () => {
         Phim tư liệu
       </h2>
       <div className="items-center-safe justify-center-safe flex">
-        <iframe
-          className="mt-10"
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/oLJEwypl6_s?si=i1q770ofqCGhjuVI"
-          title="YouTube video player"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerPolicy="strict-origin-when-cross-origin"
-          allowFullScreen
-        ></iframe>
+        <div className="mt-10">
+          <LiteYouTubeEmbed
+            id="oLJEwypl6_s"
+            title="YouTube video player"
+            params="autoplay=1"
+            poster="hqdefault"
+            webp={true}
+          />
+        </div>
       </div>
     </section>
   );
