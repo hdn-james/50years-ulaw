@@ -1,4 +1,5 @@
 import { steps } from "@/constants";
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 export const MobileVersion = () => {
   return (
@@ -8,7 +9,7 @@ export const MobileVersion = () => {
       </h2>
 
       {steps.map((step) => (
-        <div key={step.key} className="space-y-4">
+        <div key={step.key} className="space-y-4 leading-relaxed text-ulaw-navy/90">
           <div className="mt-8">{step.text}</div>
           <div className="flex gap-4 w-full justify-center items-center">
             {step.img.map((image, idx) => (
@@ -18,7 +19,8 @@ export const MobileVersion = () => {
                 alt={step.key}
                 width={400}
                 height={400}
-                className="rounded-lg w-2/5 h-auto"
+                className={cn("rounded-lg shadow-md h-auto object-cover", step.img.length <= 1 ? "w-full" : "w-2/5")}
+                loading="lazy"
               />
             ))}
           </div>

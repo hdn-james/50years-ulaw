@@ -1,13 +1,23 @@
 "use client";
+import { useEffect, useState } from "react";
 import { useMediaQuery } from "usehooks-ts";
 import { Separator } from "../ui/separator";
 import { SlidingNumber } from "../ui/sliding-number";
 
 export const History = () => {
+  const [mounted, setMounted] = useState(false);
   const isMobile = useMediaQuery("(max-width: 768px)");
-  const dPath = isMobile
-    ? "M0,70 C480,150 960,0 1440,160 L1440,800 L0,800 Z"
-    : "M0,120 C480,250 960,0 1440,160 L1440,800 L0,800 Z";
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Use desktop version by default to prevent hydration mismatch
+  const dPath =
+    mounted && isMobile
+      ? "M0,70 C480,150 960,0 1440,160 L1440,800 L0,800 Z"
+      : "M0,120 C480,250 960,0 1440,160 L1440,800 L0,800 Z";
+
   return (
     <section className="relative py-10">
       {/* Red background with wave */}

@@ -2,7 +2,7 @@
 
 import { type HTMLMotionProps, motion, type Transition } from "motion/react";
 import { cn } from "@/lib/utils";
-import { useMemo } from "react";
+import { useEffect, useState } from "react";
 
 type GradientBackgroundProps = HTMLMotionProps<"div"> & {
   transition?: Transition;
@@ -15,12 +15,20 @@ function GradientBackground({
   safariBackground,
   ...props
 }: GradientBackgroundProps) {
-  const isSafari = useMemo(() => {
-    if (navigator.userAgent.indexOf("Safari") != -1 && navigator.userAgent.indexOf("Chrome") == -1) {
-      return true;
+  const [mounted, setMounted] = useState(false);
+  const [isSafari, setIsSafari] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    if (typeof navigator !== "undefined") {
+      setIsSafari(navigator.userAgent.indexOf("Safari") !== -1 && navigator.userAgent.indexOf("Chrome") === -1);
     }
-    return false;
   }, []);
+
+  // Render static version until mounted to prevent hydration mismatch
+  if (!mounted) {
+    return <div className={cn(className, safariBackground)}>{props.children as React.ReactNode}</div>;
+  }
 
   if (isSafari) {
     return <div className={cn(className, safariBackground)}>{props.children as React.ReactNode}</div>;
