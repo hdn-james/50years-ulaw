@@ -1,10 +1,27 @@
 "use client";
+import { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import type { CarouselApi } from "@/components/ui/carousel";
 import { HighlightImageCard } from "./HighlightImageCard";
 import { highlights } from "./constants";
+import { cn } from "@/lib/utils";
 
 export const HighlightImages = () => {
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!api) return;
+
+    setCount(api.scrollSnapList().length);
+    setCurrent(api.selectedScrollSnap());
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap());
+    });
+  }, [api]);
   return (
     <section id="thu-vien-anh" className="py-12 md:py-20 overflow-hidden" aria-labelledby="highlight-images-heading">
       <div className="container px-4 md:px-6">
@@ -21,10 +38,10 @@ export const HighlightImages = () => {
           </p>
         </div>
 
-        <Carousel className="w-full max-w-7xl mx-auto">
-          <CarouselContent>
+        <Carousel className="w-full max-w-6xl mx-auto" setApi={setApi}>
+          <CarouselContent className="-ml-2 md:-ml-4">
             {highlights.map((highlight, index) => (
-              <CarouselItem key={index}>
+              <CarouselItem key={index} className="pl-2 md:pl-4 basis-[85%] sm:basis-[90%] md:basis-full">
                 <HighlightImageCard
                   key={index}
                   category={highlight.category}
@@ -37,8 +54,25 @@ export const HighlightImages = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious variant={"success"} />
-          <CarouselNext variant={"success"} />
+          {/* Navigation buttons - hidden on mobile, visible on lg+ */}
+          <CarouselPrevious variant={"ulaw"} className="hidden lg:flex" />
+          <CarouselNext variant={"ulaw"} className="hidden lg:flex" />
+
+          {/* Mobile scroll indicators */}
+          <div className="flex justify-center gap-2 mt-4">
+            {Array.from({ length: count }).map((_, index) => (
+              <button
+                key={index}
+                onClick={() => api?.scrollTo(index)}
+                className={cn(
+                  "h-2 rounded-full transition-all duration-300",
+                  current === index ? "w-8 bg-ulaw-blue2" : "w-2 bg-gray-300",
+                )}
+                aria-label={`Go to slide ${index + 1}`}
+                aria-current={current === index ? "true" : "false"}
+              />
+            ))}
+          </div>
         </Carousel>
 
         {/* View All Button */}

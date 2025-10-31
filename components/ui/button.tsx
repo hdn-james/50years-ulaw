@@ -24,6 +24,7 @@ const buttonVariants = cva(
         dim: "text-muted-foreground hover:text-foreground data-[state=open]:text-foreground",
         foreground: "",
         inverse: "",
+        ulaw: "bg-ulaw-blue2 text-white hover:bg-ulaw-blue2/90 data-[state=open]:bg-ulaw-blue2/90 dark:bg-blue2-500 dark:hover:bg-ulaw-blue2/90",
       },
       appearance: {
         default: "",
@@ -208,12 +209,6 @@ const buttonVariants = cva(
         appearance: "default",
         className: "shadow-xs shadow-black/5",
       },
-      {
-        variant: "success",
-        mode: "icon",
-        appearance: "default",
-        className: "shadow-xs shadow-black/5",
-      },
 
       // Link
       {
@@ -313,12 +308,6 @@ const buttonVariants = cva(
         variant: "destructive",
         appearance: "ghost",
         className: "bg-transparent text-destructive/90 hover:bg-destructive/5 data-[state=open]:bg-destructive/5",
-      },
-      {
-        variant: "success",
-        appearance: "ghost",
-        className:
-          "bg-transparent text-green-600 dark:text-green-500 hover:bg-green-600/5 dark:hover:bg-green-500/5 data-[state=open]:bg-green-600/5 dark:data-[state=open]:bg-green-500/5",
       },
       {
         variant: "ghost",
