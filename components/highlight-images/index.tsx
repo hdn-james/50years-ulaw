@@ -1,73 +1,59 @@
 "use client";
-import Image from "next/image";
-import { useState, useEffect } from "react";
-import { useMediaQuery } from "usehooks-ts";
-import { Marquee } from "@/components/ui/marquee";
+import { Card, CardContent } from "@/components/ui/card";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { HighlightImageCard } from "./HighlightImageCard";
+import { highlights } from "./constants";
 
 export const HighlightImages = () => {
-  const [mounted, setMounted] = useState(false);
-  const matches = useMediaQuery("(min-width: 768px)");
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  // Prevent hydration mismatch by waiting for client-side mount
-  if (!mounted) {
-    return (
-      <section id="thu-vien-anh" className="pt-10">
-        <div className="container">
-          <h2 className="font-bold text-2xl text-ulaw-blue leading-normal tracking-wide sm:text-4xl lg:text-5xl">
+  return (
+    <section id="thu-vien-anh" className="py-12 md:py-20 overflow-hidden" aria-labelledby="highlight-images-heading">
+      <div className="container px-4 md:px-6">
+        {/* Section Header */}
+        <div className="mb-12 md:mb-16">
+          <h2
+            id="highlight-images-heading"
+            className="font-bold text-2xl text-ulaw-blue leading-normal tracking-wide sm:text-4xl lg:text-5xl"
+          >
             Những hình ảnh tiêu biểu
           </h2>
+          <p className="text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed">
+            Khám phá những khoảnh khắc đáng nhớ và thành tựu nổi bật trong hành trình 50 năm phát triển
+          </p>
         </div>
-        <div className="container relative mt-8 flex h-[600px] w-full items-center justify-center gap-2 overflow-hidden sm:h-[800px]">
-          {/* Loading state */}
+
+        <Carousel className="w-full max-w-7xl mx-auto">
+          <CarouselContent>
+            {highlights.map((highlight, index) => (
+              <CarouselItem key={index}>
+                <HighlightImageCard
+                  key={index}
+                  category={highlight.category}
+                  title={highlight.title}
+                  description={highlight.description}
+                  imageSrc={highlight.imageSrc}
+                  index={index}
+                  totalCards={highlights.length}
+                />
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious variant={"success"} />
+          <CarouselNext variant={"success"} />
+        </Carousel>
+
+        {/* View All Button */}
+        <div className="mt-12 md:mt-20 text-center">
+          <a
+            href="#"
+            className="inline-flex items-center gap-3 px-6 md:px-8 py-3 md:py-4 text-sm md:text-base font-semibold text-white bg-ulaw-blue rounded-lg hover:bg-ulaw-purple transition-all duration-300 shadow-lg focus:outline-none focus:ring-2 focus:ring-ulaw-blue focus:ring-offset-2 hover:shadow-xl hover:scale-105"
+            aria-label="Xem tất cả hình ảnh tiêu biểu"
+          >
+            Xem tất cả hình ảnh
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
         </div>
-      </section>
-    );
-  }
-  const renderMarquee = (startIdx: number, count: number, reverse = false) => (
-    <Marquee vertical pauseOnHover reverse={reverse} repeat={100}>
-      {new Array(count).fill(1).map((_, idx) => (
-        <Image
-          key={startIdx + idx}
-          src={`/tieu-bieu/img_${startIdx + idx}.webp`}
-          alt={`Image ${startIdx + idx}`}
-          width={256}
-          height={144}
-          sizes="(max-width: 768px) 100vw, 256px"
-          className="w-64 h-auto rounded-lg object-cover shadow-lg aspect-video"
-        />
-      ))}
-    </Marquee>
-  );
-
-  const mobileRender = (
-    <>
-      {renderMarquee(1, 20)}
-      {renderMarquee(20, 21, true)}
-    </>
-  );
-
-  const desktopRender = (
-    <>
-      {renderMarquee(1, 14)}
-      {renderMarquee(14, 14, true)}
-      {renderMarquee(28, 13)}
-    </>
-  );
-  return (
-    <section id="thu-vien-anh" className="pt-10">
-      <div className="container">
-        <h2 className="font-bold text-2xl text-ulaw-blue leading-normal tracking-wide sm:text-4xl lg:text-5xl">
-          Những hình ảnh tiêu biểu
-        </h2>
-      </div>
-      <div className="container relative mt-8 flex h-[600px] w-full items-center justify-center gap-2 overflow-hidden sm:h-[800px]">
-        {matches ? desktopRender : mobileRender}
-        {/*<div className="pointer-events-none absolute inset-x-0 top-0 h-1/8 bg-gradient-to-b from-sky-50"></div>
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/8 bg-gradient-to-t from-sky-50"></div>*/}
       </div>
     </section>
   );

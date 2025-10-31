@@ -41,7 +41,7 @@ export const Header = () => {
       custom={height}
     >
       <motion.div className="absolute top-0 bottom-0 left-0 z-[9999] h-dvh w-screen bg-white/90" variants={sidebar} />
-      <Navigation toggleOpen={() => toggleOpen()} />
+      <Navigation isOpen={isOpen} toggleOpen={() => toggleOpen()} />
       <MenuToggle toggle={() => toggleOpen()} />
     </motion.nav>
   );
