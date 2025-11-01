@@ -99,15 +99,6 @@ export function Message50Years() {
           </div>
         ))}
       </div>
-
-      <div className="absolute bottom-10 left-1/2 flex -translate-x-1/2 gap-2">
-        {steps.map((_, i) => (
-          <div
-            key={i}
-            className={cn("h-2 w-2 rounded-full transition-colors", i === activeIndex ? "bg-ulaw-blue" : "bg-gray-300")}
-          />
-        ))}
-      </div>
     </section>
   );
 }
