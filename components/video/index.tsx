@@ -8,19 +8,18 @@ export const Video = () => {
       <h2 className="font-bold text-2xl text-ulaw-blue leading-normal tracking-wide sm:text-4xl lg:text-5xl">
         Phim tư liệu
       </h2>
-      <div className="items-center-safe justify-center-safe flex">
-        <div className="mt-10 w-[560px]">
-          <LiteYouTubeEmbed
-            id="oLJEwypl6_s"
-            title="YouTube video player"
-            playlist={false}
-            poster="hqdefault"
-            cookie={false}
-            webp
-            adNetwork={false}
-          />
-        </div>
-      </div>
+
+      <LiteYouTubeEmbed
+        id="oLJEwypl6_s"
+        wrapperClass="mt-10 rounded-2xl w-full max-w-6xl mx-auto aspect-video bg-no-repeat bg-center bg-cover shadow-2xl cursor-pointer"
+        iframeClass="size-full aspect-video rounded-2xl mt-0 inline-block"
+        title="Phim tư liệu"
+        playlist={false}
+        poster="hqdefault"
+        cookie={false}
+        webp
+        adNetwork={false}
+      />
     </section>
   );
 };

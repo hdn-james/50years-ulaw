@@ -17,6 +17,7 @@ const Message50Years = dynamic(() => import("@/components/messages-50years").the
 const Testimonials = dynamic(() => import("@/components/testimonial").then((mod) => mod.Testimonials));
 const Timeline = dynamic(() => import("@/components/timeline").then((mod) => mod.Timeline));
 const Video = dynamic(() => import("@/components/video").then((mod) => mod.Video));
+const Sponsor = dynamic(() => import("@/components/sponsor").then((mod) => mod.Sponsors));
 
 export default function Home() {
   const [showContent, setShowContent] = useState(false);
@@ -43,6 +44,7 @@ export default function Home() {
           <Activities />
           <Memories />
           <Testimonials />
+          <Sponsor />
         </GradientBackground>
       </div>
     </>

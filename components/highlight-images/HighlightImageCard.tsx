@@ -24,7 +24,6 @@ export const HighlightImageCard = ({
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1200px"
             priority={index === 0}
             loading={index === 0 ? "eager" : "lazy"}
-            quality={85}
           />
 
           {/* Overlay gradient */}

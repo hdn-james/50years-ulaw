@@ -22,8 +22,8 @@ export const Banner = () => {
           </h1>
           <h1>
             <ShimmeringText
-              text="KỶ NIỆM 50 NĂM TRUYỀN THỐNG"
-              className="font-black text-2xl leading-normal tracking-wide xl:text-3xl 2xl:text-4xl"
+              text="Kỷ niệm 50 năm truyền thống (1976-2026) và 30 năm ngày mang tên Trường Đại học Luật Thành phố Hồ Chí Minh"
+              className="font-black text-2xl leading-normal tracking-wide xl:text-3xl 2xl:text-4xl uppercase"
               color="var(--color-ulaw-blue)"
               shimmerColor="var(--color-ulaw-teal)"
               duration={3}
@@ -32,7 +32,7 @@ export const Banner = () => {
           </h1>
           <h1>
             <ShimmeringText
-              text="(1976 – 2026)"
+              text="(30/3/1996 - 30/3/2026)"
               className="font-bold text-base leading-normal tracking-wide xl:text-lg 2xl:text-xl"
               color="var(--color-ulaw-blue)"
               shimmerColor="var(--color-ulaw-teal)"

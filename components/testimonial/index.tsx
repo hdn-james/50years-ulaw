@@ -1,94 +1,67 @@
 "use client";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+
 import { Card, CardContent } from "@/components/ui/card";
 import { Marquee } from "@/components/ui/marquee";
+import { QuoteIcon } from "../svgs/quote";
 
-// Unique reviews data
+// HCMULAW 50th Anniversary Messages
 const testimonials = [
   {
-    name: "Ava Green",
-    username: "@ava",
-    body: "Cascade AI made my workflow 10x faster!",
-    img: "https://randomuser.me/api/portraits/women/32.jpg",
-    country: "🇦🇺 Australia",
+    body: '50 năm truyền thống, 30 năm phát triển! Chúc mừng Trường Đại học Luật TP.HCM tiếp tục vững bước trên chặng đường vẻ vang, phát huy tối đa giá trị cốt lõi: "Đoàn kết - Năng động - Sáng tạo - Trách nhiệm".',
   },
   {
-    name: "Ana Miller",
-    username: "@ana",
-    body: "Vertical marquee is a game changer!",
-    img: "https://randomuser.me/api/portraits/women/68.jpg",
-    country: "🇩🇪 Germany",
+    body: "Trân trọng và biết ơn những thế hệ thầy cô, cán bộ đã dày công vun đắp nên một HCMULAW uy tín, chất lượng như ngày hôm nay. Chúc Trường mãi là cái nôi đào tạo nhân lực pháp luật hàng đầu đất nước.",
   },
   {
-    name: "Mateo Rossi",
-    username: "@mat",
-    body: "Animations are buttery smooth!",
-    img: "https://randomuser.me/api/portraits/men/51.jpg",
-    country: "🇮🇹 Italy",
+    body: "Chúc Trường Đại học Luật TP.HCM luôn giữ vững và phát huy tinh thần tiên phong trong nghiên cứu và giảng dạy luật học, đóng góp tích cực vào sự nghiệp xây dựng Nhà nước pháp quyền.",
   },
   {
-    name: "Maya Patel",
-    username: "@maya",
-    body: "Setup was a breeze!",
-    img: "https://randomuser.me/api/portraits/women/53.jpg",
-    country: "🇮🇳 India",
+    body: "Hành trình nửa thế kỷ là minh chứng hùng hồn cho sự kiên trì, nỗ lực không ngừng nghỉ. Chúc Trường tiếp tục là điểm tựa vững chắc cho khát vọng cống hiến của các thế hệ sinh viên.",
   },
   {
-    name: "Noah Smith",
-    username: "@noah",
-    body: "Best marquee component!",
-    img: "https://randomuser.me/api/portraits/men/33.jpg",
-    country: "🇺🇸 USA",
+    body: "Mừng Trường vững vàng trong truyền thống, mạnh mẽ trong đổi mới. Chúc HCMULAW tiếp tục là niềm tự hào của hàng vạn cựu sinh viên.",
   },
   {
-    name: "Lucas Stone",
-    username: "@luc",
-    body: "Very customizable and smooth.",
-    img: "https://randomuser.me/api/portraits/men/22.jpg",
-    country: "🇫🇷 France",
+    body: "Chúc Trường ngày càng phát triển vượt bậc, đạt được nhiều thành tựu hơn nữa trong hội nhập quốc tế, khẳng định vị thế là một trung tâm đào tạo và nghiên cứu luật ngang tầm khu vực.",
   },
   {
-    name: "Haruto Sato",
-    username: "@haru",
-    body: "Impressive performance on mobile!",
-    img: "https://randomuser.me/api/portraits/men/85.jpg",
-    country: "🇯🇵 Japan",
+    body: "Giảng đường tri thức – Khởi nguồn công lý. Chúc các thầy cô luôn dồi dào sức khỏe, nhiệt huyết để tiếp tục là người truyền lửa, chắp cánh cho những luật sư, thẩm phán, kiểm sát viên tương lai.",
   },
   {
-    name: "Emma Lee",
-    username: "@emma",
-    body: "Love the pause on hover feature!",
-    img: "https://randomuser.me/api/portraits/women/45.jpg",
-    country: "🇨🇦 Canada",
+    body: "Chúc HCMULAW sẽ tiếp tục là môi trường học tập năng động, sáng tạo, nơi ươm mầm những tài năng pháp lý có tâm, có tầm cho đất nước.",
   },
   {
-    name: "Carlos Ray",
-    username: "@carl",
-    body: "Great for testimonials and logos.",
-    img: "https://randomuser.me/api/portraits/men/61.jpg",
-    country: "🇪🇸 Spain",
+    body: "Kính chúc tập thể cán bộ, giảng viên Trường Đại học Luật TP.HCM luôn đoàn kết, đạt nhiều thắng lợi mới trong công cuộc đổi mới giáo dục đại học.",
+  },
+  {
+    body: "Chúc các công trình nghiên cứu khoa học của Trường sẽ ngày càng ứng dụng sâu rộng vào thực tiễn đời sống và công tác lập pháp.",
+  },
+  {
+    body: "Xin gửi lời tri ân sâu sắc đến Trường, nơi đã trang bị kiến thức và đạo đức nghề nghiệp cho bao thế hệ. Chúc Trường bách niên trường tồn!",
+  },
+  {
+    body: "Cựu sinh viên mãi hướng về Trường! Chúc mối liên kết giữa Trường và các thế hệ học viên ngày càng chặt chẽ, cùng nhau xây dựng thương hiệu HCMULAW rực rỡ hơn nữa.",
+  },
+  {
+    body: "Chúc các em sinh viên đang học tại Trường tiếp tục nỗ lực, gặt hái thành công và trở thành những công dân ưu tú mang tinh thần Luật TP.HCM.",
+  },
+  {
+    body: "Chúc Trường Đại học Luật TP.HCM sẽ là ngọn hải đăng dẫn lối cho thế hệ trẻ yêu mến và muốn dấn thân vào con đường pháp luật.",
+  },
+  {
+    body: "50 năm tỏa sáng, 30 năm định danh. Chúc Trường không ngừng vươn lên, đóng góp xứng đáng vào sự nghiệp cải cách tư pháp và phát triển đất nước.",
   },
 ];
 
-function TestimonialCard({ img, name, username, body, country }: (typeof testimonials)[number]) {
+function TestimonialCard({ body }: (typeof testimonials)[number]) {
   return (
-    <Card className="w-64">
-      <CardContent>
-        <div className="flex items-center gap-2.5">
-          <Avatar className="size-9">
-            <AvatarImage src={img} alt="@reui_io" />
-            <AvatarFallback>{name[0]}</AvatarFallback>
-          </Avatar>
-          <div className="flex flex-col">
-            <figcaption className="flex items-center gap-1 font-medium text-foreground text-sm">
-              {name} <span className="text-xs">{country}</span>
-            </figcaption>
-            <p className="font-medium text-muted-foreground text-xs">{username}</p>
-          </div>
-        </div>
-        <blockquote className="mt-3 text-econdary-foreground text-sm">{body}</blockquote>
-      </CardContent>
-    </Card>
+    <div className="w-96 py-4 px-6 bg-white rounded-2xl shadow">
+      <div>
+        <QuoteIcon className="size-14 text-ulaw-blue" />
+
+        <blockquote className="mt-4 text-econdary-foreground text-justify">{body}</blockquote>
+      </div>
+    </div>
   );
 }
 
@@ -100,17 +73,17 @@ export function Testimonials() {
           Lời chúc và chia sẻ kỷ niệm về Trường ĐH Luật TP.HCM
         </h2>
       </div>
-      <div className="relative flex w-full flex-col items-center justify-center gap-1 overflow-hidden py-8">
+      <div className="relative flex w-full flex-col items-center justify-center gap-0 overflow-hidden py-8">
         {/* Marquee moving left to right (default) */}
         <Marquee pauseOnHover repeat={3} className="[--duration:120s]">
-          {testimonials.map((review) => (
-            <TestimonialCard key={review.username} {...review} />
+          {testimonials.map((review, index) => (
+            <TestimonialCard key={index} {...review} />
           ))}
         </Marquee>
         {/* Marquee moving right to left (reverse) */}
         <Marquee pauseOnHover reverse repeat={3} className="[--duration:120s]">
-          {testimonials.map((review) => (
-            <TestimonialCard key={review.username} {...review} />
+          {testimonials.map((review, index) => (
+            <TestimonialCard key={index} {...review} />
           ))}
         </Marquee>
         {/* Stylish gradient overlays */}

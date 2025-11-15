@@ -52,6 +52,11 @@ export const steps = [
             thế hệ.
           </li>
           <li>
+            <strong>Cựu người học:</strong> Hơn <strong>70.000</strong> người đã tốt nghiệp từ ngôi trường này, trong đó
+            nhiều người đảm nhận các vị trí quan trọng trong cơ quan Đảng, Nhà nước và doanh nghiệp.
+          </li>
+
+          <li>
             <strong>Văn hóa học thuật:</strong> Môi trường học tập nghiêm túc, nghiên cứu khoa học, và tinh thần đoàn
             kết của sinh viên, cựu sinh viên.
           </li>
@@ -90,6 +95,6 @@ export const steps = [
         </ul>
       </>
     ),
-    img: ["/long-phuoc.webp"],
+    img: ["/long-phuoc2.webp"],
   },
 ];

@@ -42,8 +42,8 @@ export const History = () => {
             <SlidingNumber from={1976} to={1976} duration={1} className="font-extrabold text-4xl" digitHeight={40} />
           </div>
           <div className="font-light text-xl sm:w-3/4">
-            Trường được thành lập với tên Trường Đào tạo cán bộ tư pháp miền Nam theo quyết định của Chính phủ cách mạng
-            Lâm thời Miền Nam Việt Nam.
+            Trường Cán bộ Tư pháp được thành lập đặt tại địa chỉ đặt tại khu nhà số 47 đường 30/4. Đồng thời, Trường Đại
+            học Tổng hợp TP.HCM (có bộ môn Luật sau nâng lên thành Khoa Luật) được thành lập.
           </div>
         </div>
 
@@ -51,11 +51,32 @@ export const History = () => {
 
         <div className="flex w-10/12 flex-col justify-center gap-4 sm:w-9/10 sm:flex-row sm:items-center sm:gap-8">
           <div className="sm:w-1/4">
-            <SlidingNumber from={1976} to={1987} duration={1} className="font-extrabold text-4xl" digitHeight={40} />
+            <SlidingNumber from={1976} to={1982} duration={1} className="font-extrabold text-4xl" digitHeight={40} />
           </div>
           <div className="font-light text-xl sm:w-3/4">
-            Trường trở thành Phân hiệu Phân hiệu Đại học Pháp Lý TP.HCM trực thuộc Bộ Tư pháp.
+            Trường Cán bộ Tư pháp được giao cho Bộ Tư pháp quản lý và đổi tên thành Trường Trung học Pháp lý TP.HCM.
           </div>
+        </div>
+
+        <Separator className="my-8 w-10/12 sm:w-9/10" />
+
+        <div className="flex w-10/12 flex-col justify-center gap-4 sm:w-9/10 sm:flex-row sm:items-center sm:gap-8">
+          <div className="sm:w-1/4">
+            <SlidingNumber from={1982} to={1983} duration={1} className="font-extrabold text-4xl" digitHeight={40} />
+          </div>
+          <div className="font-light text-xl sm:w-3/4">
+            Trường Trung học Pháp lý TP.HCM phối hợp với Trường Đại học Pháp lý (nay là Trường Đại học Luật Hà Nội) mở
+            các khóa Đại học chính quy.
+          </div>
+        </div>
+
+        <Separator className="my-8 w-10/12 sm:w-9/10" />
+
+        <div className="flex w-10/12 flex-col justify-center gap-4 sm:w-9/10 sm:flex-row sm:items-center sm:gap-8">
+          <div className="sm:w-1/4">
+            <SlidingNumber from={1976} to={1987} duration={1.5} className="font-extrabold text-4xl" digitHeight={40} />
+          </div>
+          <div className="font-light text-xl sm:w-3/4">Đổi tên thành Phân hiệu Đại học Pháp lý TP.HCM.</div>
         </div>
 
         <Separator className="my-8 w-10/12 sm:w-9/10" />
@@ -64,20 +85,22 @@ export const History = () => {
           <div className="sm:w-1/4">
             <SlidingNumber from={1987} to={1993} duration={2} className="font-extrabold text-4xl" digitHeight={40} />
           </div>
-          <div className="font-light text-xl sm:w-3/4">
-            Trường đổi tên thành Phân hiệu đại học luật TP.HCM, trực thuộc Bộ Tư pháp.
-          </div>
+          <div className="font-light text-xl sm:w-3/4">Đổi tên thành Phân hiệu Đại học Luật TP.HCM.</div>
         </div>
 
         <Separator className="my-8 w-10/12 sm:w-9/10" />
 
         <div className="flex w-10/12 flex-col justify-center gap-4 sm:w-9/10 sm:flex-row sm:items-center sm:gap-8">
-          <div className="sm:w-1/4">
+          <div className="flex flex-wrap font-extrabold text-4xl sm:w-1/4 text-shadow-ulaw-purple">
+            <SlidingNumber from={0} to={30} duration={3} className="font-extrabold text-4xl" digitHeight={40} />
+            <p>/</p>
+            <SlidingNumber from={0} to={3} duration={3} className="font-extrabold text-4xl" digitHeight={40} />
+            <p>/</p>
             <SlidingNumber from={1993} to={1996} duration={3} className="font-extrabold text-4xl" digitHeight={40} />
           </div>
           <div className="font-light text-xl sm:w-3/4">
-            Trường chính thức được đặt tên là Trường Đại học Luật TP.HCM, trực thuộc Đại học Quốc gia TP.HCM (trên cơ sở
-            sáp nhập Phân hiệu Đại học Luật TP.HCM và Khoa Luật Trường Đại học Tổng hợp TP.HCM).
+            Chính thức mang tên Trường Đại học Luật (thuộc Đại học Quốc gia TP.HCM) trên cơ sở hợp nhất giữa Phân hiệu
+            Đại học Luật TP. HCM và Khoa Luật của Trường Đại học Tổng hợp TP.HCM.
           </div>
         </div>
 
@@ -89,7 +112,7 @@ export const History = () => {
             <p>&nbsp;-&nbsp;nay</p>
           </div>
           <div className="font-light text-xl sm:w-3/4">
-            Trường trở thành Trường Đại học Luật TP.HCM, trực thuộc Bộ Giáo dục và Đào tạo.
+            Trường Đại học Luật tách ra khỏi Đại học Quốc gia và trực thuộc Bộ Giáo dục và Đào tạo cho đến nay.
           </div>
         </div>
       </div>
