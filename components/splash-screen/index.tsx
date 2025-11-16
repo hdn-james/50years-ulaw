@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 interface TimeLeft {
   days: number;
@@ -112,7 +113,7 @@ export function SplashScreen({ onComplete }: SplashScreenProps) {
       setTimeout(() => {
         onComplete?.();
       }, 500); // Wait for exit animation
-    }, 10000);
+    }, 100000);
 
     return () => {
       clearInterval(timer);
@@ -135,18 +136,19 @@ export function SplashScreen({ onComplete }: SplashScreenProps) {
           animate={{ opacity: isLoaded ? 1 : 0 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5 }}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-[var(--color-ulaw-teal)] via-[var(--color-ulaw-blue)] to-[var(--color-ulaw-navy)]"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-ulaw-teal via-ulaw-dark to-ulaw-navy"
         >
           <div className="relative flex flex-col items-center justify-center px-4 text-center">
-            {/* Logo or Title */}
+            {/* Logo */}
             <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
+              initial={{ scale: 0.8, opacity: 0, y: -20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="mb-8"
+              className="mb-12"
             >
-              <h1 className="mb-4 text-4xl font-bold text-white md:text-6xl lg:text-7xl">ULAW 50 Năm</h1>
-              <p className="text-lg text-white/90 md:text-xl lg:text-2xl">1976 - 2026</p>
+              <div className="relative w-[280px] h-[200px] md:w-[400px] md:h-[280px] lg:w-[500px] lg:h-[350px]">
+                <Image src="/logo.webp" alt="ULAW 50 Năm - 1976-2026" fill className="object-contain" priority />
+              </div>
             </motion.div>
 
             {/* Countdown */}
@@ -156,38 +158,38 @@ export function SplashScreen({ onComplete }: SplashScreenProps) {
               transition={{ delay: 0.5, duration: 0.6 }}
               className="mb-8"
             >
-              <p className="mb-6 text-lg font-medium text-white/90 md:text-xl">Đếm ngược đến ngày kỷ niệm</p>
+              <p className="mb-6 text-lg font-medium text-accent md:text-xl">Đếm ngược đến ngày kỷ niệm</p>
               <div className="grid grid-cols-4 gap-3 md:gap-6">
                 {/* Days */}
                 <div className="flex flex-col items-center justify-center rounded-lg bg-white/15 p-4 backdrop-blur-sm md:p-6 border border-white/20">
-                  <div className="text-4xl font-bold text-white leading-none md:text-6xl lg:text-7xl h-[40px] md:h-[60px] lg:h-[70px] flex items-center justify-center">
+                  <div className="text-4xl font-bold text-accent leading-none md:text-6xl lg:text-7xl h-[40px] md:h-[60px] lg:h-[70px] flex items-center justify-center">
                     <AnimatedNumber value={timeLeft.days} digits={3} />
                   </div>
-                  <div className="mt-3 text-xs font-medium text-white/80 md:text-sm lg:text-base">Ngày</div>
+                  <div className="mt-3 text-xs font-medium text-accent/80 md:text-sm lg:text-base">Ngày</div>
                 </div>
 
                 {/* Hours */}
-                <div className="flex flex-col items-center justify-center rounded-lg bg-white/15 p-4 backdrop-blur-sm md:p-6 border border-white/20">
-                  <div className="text-4xl font-bold text-white leading-none md:text-6xl lg:text-7xl h-[40px] md:h-[60px] lg:h-[70px] flex items-center justify-center">
+                <div className="flex flex-col items-center justify-center rounded-lg bg-accent/15 p-4 backdrop-blur-sm md:p-6 border border-accent/20">
+                  <div className="text-4xl font-bold text-accent leading-none md:text-6xl lg:text-7xl h-[40px] md:h-[60px] lg:h-[70px] flex items-center justify-center">
                     <AnimatedNumber value={timeLeft.hours} digits={2} />
                   </div>
-                  <div className="mt-3 text-xs font-medium text-white/80 md:text-sm lg:text-base">Giờ</div>
+                  <div className="mt-3 text-xs font-medium text-accent/80 md:text-sm lg:text-base">Giờ</div>
                 </div>
 
                 {/* Minutes */}
-                <div className="flex flex-col items-center justify-center rounded-lg bg-white/15 p-4 backdrop-blur-sm md:p-6 border border-white/20">
-                  <div className="text-4xl font-bold text-white leading-none md:text-6xl lg:text-7xl h-[40px] md:h-[60px] lg:h-[70px] flex items-center justify-center">
+                <div className="flex flex-col items-center justify-center rounded-lg bg-accent/15 p-4 backdrop-blur-sm md:p-6 border border-accent/20">
+                  <div className="text-4xl font-bold text-accent leading-none md:text-6xl lg:text-7xl h-[40px] md:h-[60px] lg:h-[70px] flex items-center justify-center">
                     <AnimatedNumber value={timeLeft.minutes} digits={2} />
                   </div>
-                  <div className="mt-3 text-xs font-medium text-white/80 md:text-sm lg:text-base">Phút</div>
+                  <div className="mt-3 text-xs font-medium text-accent/80 md:text-sm lg:text-base">Phút</div>
                 </div>
 
                 {/* Seconds */}
-                <div className="flex flex-col items-center justify-center rounded-lg bg-white/15 p-4 backdrop-blur-sm md:p-6 border border-white/20">
-                  <div className="text-4xl font-bold text-white leading-none md:text-6xl lg:text-7xl h-[40px] md:h-[60px] lg:h-[70px] flex items-center justify-center">
+                <div className="flex flex-col items-center justify-center rounded-lg bg-accent/15 p-4 backdrop-blur-sm md:p-6 border border-accent/20">
+                  <div className="text-4xl font-bold text-accent leading-none md:text-6xl lg:text-7xl h-[40px] md:h-[60px] lg:h-[70px] flex items-center justify-center">
                     <AnimatedNumber value={timeLeft.seconds} digits={2} />
                   </div>
-                  <div className="mt-3 text-xs font-medium text-white/80 md:text-sm lg:text-base">Giây</div>
+                  <div className="mt-3 text-xs font-medium text-accent/80 md:text-sm lg:text-base">Giây</div>
                 </div>
               </div>
             </motion.div>
@@ -199,7 +201,7 @@ export function SplashScreen({ onComplete }: SplashScreenProps) {
               transition={{ delay: 0.8, duration: 0.6 }}
               className="mb-8"
             >
-              <p className="text-2xl font-semibold text-white md:text-3xl lg:text-4xl">30 Tháng 3, 2026</p>
+              <p className="text-2xl font-semibold text-accent md:text-3xl lg:text-4xl">30 Tháng 3, 2026</p>
             </motion.div>
 
             {/* Skip Button */}
@@ -212,7 +214,7 @@ export function SplashScreen({ onComplete }: SplashScreenProps) {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Bỏ qua
+              Tiếp tục
               <span className="ml-2 inline-block transition-transform group-hover:translate-x-1">→</span>
             </motion.button>
           </div>

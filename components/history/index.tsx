@@ -42,8 +42,8 @@ export const History = () => {
             <SlidingNumber from={1976} to={1976} duration={1} className="font-extrabold text-4xl" digitHeight={40} />
           </div>
           <div className="font-light text-xl sm:w-3/4">
-            Trường Cán bộ Tư pháp được thành lập đặt tại địa chỉ đặt tại khu nhà số 47 đường 30/4. Đồng thời, Trường Đại
-            học Tổng hợp TP.HCM (có bộ môn Luật sau nâng lên thành Khoa Luật) được thành lập.
+            Trường Cán bộ Tư pháp được thành lập địa chỉ đặt tại khu nhà số 47 đường 30/4. Đồng thời, Trường Đại học
+            Tổng hợp TP.HCM (có bộ môn Luật sau nâng lên thành Khoa Luật) được thành lập.
           </div>
         </div>
 
