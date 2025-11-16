@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
@@ -79,6 +79,24 @@ export function SplashScreen({ onComplete }: SplashScreenProps) {
   });
   const [isVisible, setIsVisible] = useState(true);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [scale, setScale] = useState(1);
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  const calculateScale = useCallback(() => {
+    if (contentRef.current) {
+      const viewportHeight = window.innerHeight;
+      const contentHeight = contentRef.current.scrollHeight;
+      const viewportWidth = window.innerWidth;
+      const contentWidth = contentRef.current.scrollWidth;
+
+      // Calculate scale based on both height and width constraints
+      const scaleHeight = viewportHeight / (contentHeight + 80); // 80px for padding
+      const scaleWidth = viewportWidth / (contentWidth + 64); // 64px for padding
+      const newScale = Math.min(scaleHeight, scaleWidth, 1);
+
+      setScale(newScale);
+    }
+  }, []);
 
   useEffect(() => {
     setIsLoaded(true);
@@ -113,13 +131,20 @@ export function SplashScreen({ onComplete }: SplashScreenProps) {
       setTimeout(() => {
         onComplete?.();
       }, 500); // Wait for exit animation
-    }, 100000);
+    }, 1000000);
+
+    // Calculate initial scale
+    setTimeout(calculateScale, 100);
+
+    // Recalculate on resize
+    window.addEventListener("resize", calculateScale);
 
     return () => {
       clearInterval(timer);
       clearTimeout(hideTimer);
+      window.removeEventListener("resize", calculateScale);
     };
-  }, [onComplete]);
+  }, [onComplete, calculateScale]);
 
   const handleSkip = () => {
     setIsVisible(false);
@@ -136,18 +161,26 @@ export function SplashScreen({ onComplete }: SplashScreenProps) {
           animate={{ opacity: isLoaded ? 1 : 0 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5 }}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-ulaw-teal via-ulaw-dark to-ulaw-navy"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-ulaw-teal via-ulaw-dark to-ulaw-navy overflow-hidden"
         >
-          <div className="relative flex flex-col items-center justify-center px-4 text-center">
+          <div
+            ref={contentRef}
+            className="relative flex flex-col items-center justify-center px-4 py-4 sm:py-6 md:py-8 text-center"
+            style={{
+              transform: `scale(${scale})`,
+              transformOrigin: "center center",
+              transition: "transform 0.3s ease-out",
+            }}
+          >
             {/* Logo */}
             <motion.div
               initial={{ scale: 0.8, opacity: 0, y: -20 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="mb-12"
+              className="mb-6 md:mb-8 lg:mb-12 flex-shrink-0"
             >
-              <div className="relative w-[280px] h-[200px] md:w-[400px] md:h-[280px] lg:w-[500px] lg:h-[350px]">
-                <Image src="/logo.webp" alt="ULAW 50 Năm - 1976-2026" fill className="object-contain" priority />
+              <div className="relative w-[280px] h-[196px] sm:w-[350px] sm:h-[245px] md:w-[400px] md:h-[280px] lg:w-[500px] lg:h-[350px]">
+                <Image src="/logo1.webp" alt="ULAW 50 Năm - 1976-2026" fill className="object-contain" priority />
               </div>
             </motion.div>
 
@@ -156,40 +189,40 @@ export function SplashScreen({ onComplete }: SplashScreenProps) {
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.6 }}
-              className="mb-8"
+              className="mb-6 md:mb-8 flex-shrink-0"
             >
-              <p className="mb-6 text-lg font-medium text-accent md:text-xl">Đếm ngược đến ngày kỷ niệm</p>
+              <p className="mb-4 md:mb-6 text-base md:text-lg font-medium text-white/90">Đếm ngược đến ngày kỷ niệm</p>
               <div className="grid grid-cols-4 gap-3 md:gap-6">
                 {/* Days */}
-                <div className="flex flex-col items-center justify-center rounded-lg bg-white/15 p-4 backdrop-blur-sm md:p-6 border border-white/20">
-                  <div className="text-4xl font-bold text-accent leading-none md:text-6xl lg:text-7xl h-[40px] md:h-[60px] lg:h-[70px] flex items-center justify-center">
+                <div className="flex flex-col items-center justify-center rounded-lg bg-white/15 p-4 md:p-6 backdrop-blur-sm border border-white/20">
+                  <div className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-none h-[40px] md:h-[60px] lg:h-[70px] flex items-center justify-center">
                     <AnimatedNumber value={timeLeft.days} digits={3} />
                   </div>
-                  <div className="mt-3 text-xs font-medium text-accent/80 md:text-sm lg:text-base">Ngày</div>
+                  <div className="mt-3 text-xs md:text-sm lg:text-base font-medium text-white/80">Ngày</div>
                 </div>
 
                 {/* Hours */}
-                <div className="flex flex-col items-center justify-center rounded-lg bg-accent/15 p-4 backdrop-blur-sm md:p-6 border border-accent/20">
-                  <div className="text-4xl font-bold text-accent leading-none md:text-6xl lg:text-7xl h-[40px] md:h-[60px] lg:h-[70px] flex items-center justify-center">
+                <div className="flex flex-col items-center justify-center rounded-lg bg-white/15 p-4 md:p-6 backdrop-blur-sm border border-white/20">
+                  <div className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-none h-[40px] md:h-[60px] lg:h-[70px] flex items-center justify-center">
                     <AnimatedNumber value={timeLeft.hours} digits={2} />
                   </div>
-                  <div className="mt-3 text-xs font-medium text-accent/80 md:text-sm lg:text-base">Giờ</div>
+                  <div className="mt-3 text-xs md:text-sm lg:text-base font-medium text-white/80">Giờ</div>
                 </div>
 
                 {/* Minutes */}
-                <div className="flex flex-col items-center justify-center rounded-lg bg-accent/15 p-4 backdrop-blur-sm md:p-6 border border-accent/20">
-                  <div className="text-4xl font-bold text-accent leading-none md:text-6xl lg:text-7xl h-[40px] md:h-[60px] lg:h-[70px] flex items-center justify-center">
+                <div className="flex flex-col items-center justify-center rounded-lg bg-white/15 p-4 md:p-6 backdrop-blur-sm border border-white/20">
+                  <div className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-none h-[40px] md:h-[60px] lg:h-[70px] flex items-center justify-center">
                     <AnimatedNumber value={timeLeft.minutes} digits={2} />
                   </div>
-                  <div className="mt-3 text-xs font-medium text-accent/80 md:text-sm lg:text-base">Phút</div>
+                  <div className="mt-3 text-xs md:text-sm lg:text-base font-medium text-white/80">Phút</div>
                 </div>
 
                 {/* Seconds */}
-                <div className="flex flex-col items-center justify-center rounded-lg bg-accent/15 p-4 backdrop-blur-sm md:p-6 border border-accent/20">
-                  <div className="text-4xl font-bold text-accent leading-none md:text-6xl lg:text-7xl h-[40px] md:h-[60px] lg:h-[70px] flex items-center justify-center">
+                <div className="flex flex-col items-center justify-center rounded-lg bg-white/15 p-4 md:p-6 backdrop-blur-sm border border-white/20">
+                  <div className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-none h-[40px] md:h-[60px] lg:h-[70px] flex items-center justify-center">
                     <AnimatedNumber value={timeLeft.seconds} digits={2} />
                   </div>
-                  <div className="mt-3 text-xs font-medium text-accent/80 md:text-sm lg:text-base">Giây</div>
+                  <div className="mt-3 text-xs md:text-sm lg:text-base font-medium text-white/80">Giây</div>
                 </div>
               </div>
             </motion.div>
@@ -199,9 +232,9 @@ export function SplashScreen({ onComplete }: SplashScreenProps) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8, duration: 0.6 }}
-              className="mb-8"
+              className="mb-6 md:mb-8 flex-shrink-0"
             >
-              <p className="text-2xl font-semibold text-accent md:text-3xl lg:text-4xl">30 Tháng 3, 2026</p>
+              <p className="text-2xl md:text-3xl lg:text-4xl font-semibold text-white">30 Tháng 3, 2026</p>
             </motion.div>
 
             {/* Skip Button */}
@@ -210,7 +243,7 @@ export function SplashScreen({ onComplete }: SplashScreenProps) {
               animate={{ opacity: 1 }}
               transition={{ delay: 1, duration: 0.6 }}
               onClick={handleSkip}
-              className="group mt-4 rounded-full border-2 border-white/50 bg-white/10 px-6 py-2 text-sm font-medium text-white backdrop-blur-sm transition-all hover:border-white hover:bg-white/20 md:px-8 md:py-3 md:text-base"
+              className="group mt-4 rounded-full border-2 border-white/50 bg-white/10 px-6 py-2 md:px-8 md:py-3 text-sm md:text-base font-medium text-white backdrop-blur-sm transition-all hover:border-white hover:bg-white/20 flex-shrink-0"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >

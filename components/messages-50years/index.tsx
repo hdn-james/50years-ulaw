@@ -54,7 +54,7 @@ export function Message50Years() {
       ref={containerRef}
       aria-label="Kỷ niệm 50 năm truyền thống Trường Đại học Luật TP.HCM"
       id="le-ky-niem-50-nam"
-      className="relative mx-auto flex max-w-7xl justify-between"
+      className="relative mx-auto container flex max-w-7xl justify-between"
     >
       {/* Left column (text) */}
       <div className="sticky top-0 left-0 flex h-dvh w-3/5 flex-col items-center justify-center p-6">
