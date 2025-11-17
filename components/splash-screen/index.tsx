@@ -131,7 +131,7 @@ export function SplashScreen({ onComplete }: SplashScreenProps) {
       setTimeout(() => {
         onComplete?.();
       }, 500); // Wait for exit animation
-    }, 1000000);
+    }, 10000);
 
     // Calculate initial scale
     setTimeout(calculateScale, 100);
