@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
-import { cn } from "@/lib/utils";
-import { TimelineEvent } from "./timelineData";
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
+import { cn } from '@/lib/utils';
+import { TimelineEvent } from './timelineData';
 
 interface TimelineCardProps {
   event: TimelineEvent;
@@ -13,40 +13,40 @@ interface TimelineCardProps {
 export const TimelineCard = ({ event, index }: TimelineCardProps) => {
   const ref = useRef(null);
   const inView = useInView(ref, {
-    margin: "0% 0px -25% 0px",
+    margin: '0% 0px -25% 0px',
     amount: 0.3,
     once: true,
   });
 
   const getPhaseStyles = () => {
     switch (event.phase) {
-      case "before":
+      case 'before':
         return {
-          border: "border-emerald-200",
-          bg: "bg-sky-50/80",
-          title: "text-emerald-800",
-          date: "text-emerald-700",
+          border: 'border-emerald-200',
+          bg: 'bg-sky-50/80',
+          title: 'text-emerald-800',
+          date: 'text-emerald-700',
         };
-      case "main":
+      case 'main':
         return {
-          border: "border-ulaw-blue",
-          bg: "bg-gradient-to-r from-ulaw-teal via-40% via-ulaw-blue to-ulaw-blue2",
-          title: "text-white",
-          date: "text-white",
+          border: 'border-ulaw-blue',
+          bg: 'bg-gradient-to-r from-ulaw-teal via-40% via-ulaw-blue to-ulaw-blue2',
+          title: 'text-white',
+          date: 'text-white',
         };
-      case "after":
+      case 'after':
         return {
-          border: "border-sky-200",
-          bg: "bg-sky-50/80",
-          title: "text-sky-800",
-          date: "text-sky-700",
+          border: 'border-sky-200',
+          bg: 'bg-sky-50/80',
+          title: 'text-sky-800',
+          date: 'text-sky-700',
         };
       default:
         return {
-          border: "border-gray-200",
-          bg: "bg-white",
-          title: "text-gray-900",
-          date: "text-gray-600",
+          border: 'border-gray-200',
+          bg: 'bg-white',
+          title: 'text-gray-900',
+          date: 'text-gray-600',
         };
     }
   };
@@ -64,12 +64,12 @@ export const TimelineCard = ({ event, index }: TimelineCardProps) => {
         ease: [0.25, 0.46, 0.45, 0.94],
       }}
       className={cn(
-        "relative rounded-xl sm:rounded-2xl border-2 p-4 sm:p-5 md:p-6 lg:p-8 backdrop-blur-sm transition-shadow",
+        'relative rounded-xl sm:rounded-2xl border-2 p-4 sm:p-5 md:p-6 lg:p-8 backdrop-blur-sm transition-shadow',
         styles.border,
         styles.bg,
-        event.phase === "main"
-          ? "min-h-[180px] sm:min-h-[200px] flex flex-col justify-center shadow-2xl"
-          : "shadow-lg hover:shadow-xl",
+        event.phase === 'main'
+          ? 'min-h-[180px] sm:min-h-[200px] flex flex-col justify-center shadow-2xl'
+          : 'shadow-lg hover:shadow-xl',
       )}
     >
       {/* Date badge */}
@@ -78,10 +78,10 @@ export const TimelineCard = ({ event, index }: TimelineCardProps) => {
         animate={inView ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }}
         transition={{ delay: 0.3, duration: 0.4 }}
         className={cn(
-          "inline-block rounded-full px-3 py-1 mb-2 sm:mb-3 text-xs sm:text-sm font-semibold",
-          event.phase === "main"
-            ? "bg-white/20 text-white text-center sm:text-base"
-            : "bg-white border border-current shadow-sm",
+          'inline-block rounded-full px-3 py-1 mb-2 sm:mb-3 text-xs sm:text-sm font-semibold',
+          event.phase === 'main'
+            ? 'bg-white/20 text-white text-center sm:text-base'
+            : 'bg-white border border-current shadow-sm',
           styles.date,
         )}
       >
@@ -94,9 +94,9 @@ export const TimelineCard = ({ event, index }: TimelineCardProps) => {
         animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
         transition={{ delay: 0.4, duration: 0.5 }}
         className={cn(
-          "font-bold text-base sm:text-lg md:text-xl mb-2 sm:mb-3",
+          'font-bold text-base sm:text-lg md:text-xl mb-2 sm:mb-3',
           styles.title,
-          event.phase === "main" && "text-center text-xl sm:text-2xl md:text-3xl lg:text-4xl",
+          event.phase === 'main' && 'text-center text-xl sm:text-2xl md:text-3xl lg:text-4xl',
         )}
       >
         {event.title}
@@ -109,8 +109,8 @@ export const TimelineCard = ({ event, index }: TimelineCardProps) => {
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
           transition={{ delay: 0.5, duration: 0.5 }}
           className={cn(
-            "text-base sm:text-lg font-medium leading-relaxed",
-            event.phase === "main" ? "text-center text-white mt-2" : styles.title,
+            'text-base sm:text-lg font-medium leading-relaxed',
+            event.phase === 'main' ? 'text-center text-white mt-2' : styles.title,
           )}
         >
           {event.description}
@@ -124,8 +124,8 @@ export const TimelineCard = ({ event, index }: TimelineCardProps) => {
           animate={inView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ delay: 0.5, duration: 0.5 }}
           className={cn(
-            "list-disc list-inside space-y-1.5 sm:space-y-2 text-xs sm:text-sm md:text-base",
-            event.phase === "main" ? "text-white" : "text-slate-700",
+            'list-disc list-inside space-y-1.5 sm:space-y-2 text-xs sm:text-sm md:text-base',
+            event.phase === 'main' ? 'text-white' : 'text-slate-700',
           )}
         >
           {event.items.map((item, idx) => (

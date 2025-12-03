@@ -1,10 +1,10 @@
 export const steps = [
   {
-    key: "step1",
+    key: 'step1',
     text: (
       <>
         <p>
-          Chủ đề của chuỗi chương trình kỷ niệm <strong>50 năm truyền thống</strong> và{" "}
+          Chủ đề của chuỗi chương trình kỷ niệm <strong>50 năm truyền thống</strong> và{' '}
           <strong>30 năm ngày mang tên Trường Đại học Luật Thành phố Hồ Chí Minh</strong> mang một thông điệp mạnh mẽ,
           vừa nhìn lại chặng đường lịch sử đầy tự hào (
           <span className="font-semibold text-ulaw-blue">50 năm vững truyền thống</span>) vừa định hướng cho một tương
@@ -17,10 +17,10 @@ export const steps = [
         </p>
       </>
     ),
-    img: ["/logo.webp"],
+    img: ['/logo.webp'],
   },
   {
-    key: "step2",
+    key: 'step2',
     text: (
       <>
         <h3 className="mb-2 font-semibold text-2xl xl:text-4xl text-ulaw-blue">50 năm ULAW</h3>
@@ -31,10 +31,10 @@ export const steps = [
         </p>
       </>
     ),
-    img: ["/q4-old.webp", "/q4-new.webp"],
+    img: ['/q4-old.webp', '/q4-new.webp'],
   },
   {
-    key: "step3",
+    key: 'step3',
     text: (
       <>
         <h3 className="mb-2 font-semibold text-2xl xl:text-4xl text-ulaw-blue">Vững truyền thống</h3>
@@ -71,10 +71,10 @@ export const steps = [
         </p>
       </>
     ),
-    img: ["/binh-trieu-new.webp", "/binh-trieu-old.webp"],
+    img: ['/binh-trieu-new.webp', '/binh-trieu-old.webp'],
   },
   {
-    key: "step4",
+    key: 'step4',
     text: (
       <>
         <h3 className="mb-2 font-semibold text-2xl xl:text-4xl text-ulaw-blue">Sáng tương lai</h3>
@@ -95,6 +95,6 @@ export const steps = [
         </ul>
       </>
     ),
-    img: ["/long-phuoc2.webp"],
+    img: ['/long-phuoc2.webp'],
   },
 ];

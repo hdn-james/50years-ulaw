@@ -1,0 +1,163 @@
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "linux-musl-arm64-openssl-3.0.x", "linux-musl-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  ADMIN
+  EDITOR
+  VIEWER
+}
+
+enum ContentStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+model User {
+  id           String    @id @default(uuid())
+  username     String    @unique
+  passwordHash String
+  role         UserRole  @default(EDITOR)
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  sessions Session[]
+  contents Content[]
+}
+
+model Session {
+  id         String   @id @default(uuid())
+  tokenHash  String   @unique
+  expiresAt  DateTime
+  createdAt  DateTime @default(now())
+  lastUsedAt DateTime @default(now())
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId String
+
+  @@index([userId])
+  @@index([expiresAt])
+}
+
+model Content {
+  id             String        @id @default(uuid())
+  title          String
+  slug           String        @unique
+  description    String?
+  category       String?
+  body           String
+  seoDescription String?
+  seoImageUrl    String?
+  seoImageAlt    String?
+  thumbnailUrl   String?
+  images         Json?
+  status         ContentStatus @default(DRAFT)
+  publishedAt    DateTime?
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+
+  author   User?  @relation(fields: [authorId], references: [id], onDelete: SetNull)
+  authorId String?
+
+  tags ContentTag[]
+
+  @@index([status])
+  @@index([publishedAt])
+  @@index([category])
+}
+
+model Tag {
+  id        String       @id @default(uuid())
+  name      String       @unique
+  slug      String       @unique
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @updatedAt
+
+  contents ContentTag[]
+}
+
+model ContentTag {
+  content   Content @relation(fields: [contentId], references: [id], onDelete: Cascade)
+  contentId String
+
+  tag   Tag    @relation(fields: [tagId], references: [id], onDelete: Cascade)
+  tagId String
+
+  @@id([contentId, tagId])
+}
+
+model PressAboutUs {
+  id           String        @id @default(uuid())
+  title        String
+  dateReleased DateTime
+  description  String
+  thumbnailUrl String?
+  link         String?
+  status       ContentStatus @default(DRAFT)
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  @@index([status])
+  @@index([dateReleased])
+}
+
+model Sponsor {
+  id        String   @id @default(uuid())
+  name      String
+  logoUrl   String
+  alt       String
+  order     Int      @default(0)
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([isActive])
+  @@index([order])
+}
+
+model Testimonial {
+  id          String        @id @default(uuid())
+  name        String
+  body        String
+  images      Json?         // Array of image URLs uploaded with testimonial
+  isPublished Boolean       @default(false)
+  isStatic    Boolean       @default(false)
+  order       Int           @default(0)
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  @@index([isPublished])
+  @@index([order])
+  @@index([createdAt])
+}
+
+model TestimonialImage {
+  id          String   @id @default(uuid())
+  filename    String
+  url         String
+  originalName String
+  size        Int
+  mimeType    String
+  createdAt   DateTime @default(now())
+
+  @@index([createdAt])
+}
+
+model SectionOrder {
+  id        String   @id @default(uuid())
+  sectionId String   @unique
+  name      String
+  order     Int      @default(0)
+  isVisible Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([order])
+}

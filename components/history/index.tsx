@@ -19,7 +19,7 @@ export const History = () => {
       : "M0,120 C480,250 960,0 1440,160 L1440,800 L0,800 Z";
 
   return (
-    <section className="relative py-10">
+    <section id="lich-su-phat-trien" className="relative py-10">
       {/* Red background with wave */}
       <div className="absolute inset-0 z-0">
         <svg

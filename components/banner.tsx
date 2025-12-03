@@ -1,6 +1,6 @@
-import Image from "next/image";
-import { ShimmeringText } from "@/components/ui/shimmering-text";
-import { Separator } from "./ui/separator";
+import Image from 'next/image';
+import { ShimmeringText } from '@/components/ui/shimmering-text';
+import { Separator } from './ui/separator';
 
 export const Banner = () => {
   return (

@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
-import { cn } from "@/lib/utils";
-import { timelineConfig } from "./config";
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
+import { cn } from '@/lib/utils';
+import { timelineConfig } from './config';
 
 interface TimelineDotProps {
-  phase: "before" | "main" | "after";
+  phase: 'before' | 'main' | 'after';
 }
 
 export const TimelineDot = ({ phase }: TimelineDotProps) => {
@@ -19,22 +19,22 @@ export const TimelineDot = ({ phase }: TimelineDotProps) => {
 
   const getPhaseColor = () => {
     switch (phase) {
-      case "before":
+      case 'before':
         return timelineConfig.colors.phases.before.dot;
-      case "main":
+      case 'main':
         return timelineConfig.colors.phases.main.dot;
-      case "after":
+      case 'after':
         return timelineConfig.colors.phases.after.dot;
       default:
-        return "bg-blue-500";
+        return 'bg-blue-500';
     }
   };
 
   return (
-    <div className={cn("relative flex items-center justify-center")}>
+    <div className={cn('relative flex items-center justify-center')}>
       <motion.div
         ref={ref}
-        className={cn("rounded-full border-4 border-white shadow-lg z-10 relative", getPhaseColor())}
+        className={cn('rounded-full border-4 border-white shadow-lg z-10 relative', getPhaseColor())}
         initial={{ scale: timelineConfig.animation.dot.scale.normal }}
         animate={{
           scale: inView ? timelineConfig.animation.dot.scale.active : timelineConfig.animation.dot.scale.normal,
@@ -47,7 +47,7 @@ export const TimelineDot = ({ phase }: TimelineDotProps) => {
       {inView && (
         <motion.div
           className={cn(
-            "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full opacity-20",
+            'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full opacity-20',
             getPhaseColor(),
           )}
           initial={{ scale: 1, opacity: 0.3 }}
@@ -55,7 +55,7 @@ export const TimelineDot = ({ phase }: TimelineDotProps) => {
           transition={{
             duration: 1.5,
             repeat: Infinity,
-            ease: "easeOut",
+            ease: 'easeOut',
           }}
           style={{ width: 20, height: 20 }}
         />

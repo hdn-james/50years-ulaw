@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
-import { motion, MotionValue, useInView, useSpring, useTransform } from "framer-motion";
+import { MotionValue, motion, useInView, useSpring, useTransform } from 'framer-motion';
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 
 function Digit({
   place,
@@ -72,7 +72,7 @@ export function SlidingNumber({
   delay = 0,
   startOnView = true,
   once = false,
-  className = "",
+  className = '',
   onComplete,
   digitHeight = 40,
 }: SlidingNumberProps) {
@@ -187,7 +187,7 @@ export function SlidingNumber({
 
   return (
     <div ref={ref} className={`flex items-center ${className}`}>
-      {roundedValue < 0 && "-"}
+      {roundedValue < 0 && '-'}
       {places.map((place) => (
         <Digit
           key={`${place}-${animationKey}`}

@@ -1,7 +1,7 @@
-"use client";
-import Image from "next/image";
-import { Card, CardContent } from "../ui/card";
-import type { HighlightImageCardProps } from "./types";
+'use client';
+import Image from 'next/image';
+import { Card, CardContent } from '../ui/card';
+import type { HighlightImageCardProps } from './types';
 
 export const HighlightImageCard = ({
   title,
@@ -23,7 +23,7 @@ export const HighlightImageCard = ({
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1200px"
             priority={index === 0}
-            loading={index === 0 ? "eager" : "lazy"}
+            loading={index === 0 ? 'eager' : 'lazy'}
           />
 
           {/* Overlay gradient */}

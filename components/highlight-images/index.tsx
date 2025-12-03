@@ -1,11 +1,11 @@
-"use client";
-import { useState, useEffect } from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import type { CarouselApi } from "@/components/ui/carousel";
-import { HighlightImageCard } from "./HighlightImageCard";
-import { highlights } from "./constants";
-import { cn } from "@/lib/utils";
+'use client';
+import { useEffect, useState } from 'react';
+import { Card, CardContent } from '@/components/ui/card';
+import type { CarouselApi } from '@/components/ui/carousel';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import { cn } from '@/lib/utils';
+import { highlights } from './constants';
+import { HighlightImageCard } from './HighlightImageCard';
 
 export const HighlightImages = () => {
   const [api, setApi] = useState<CarouselApi>();
@@ -18,7 +18,7 @@ export const HighlightImages = () => {
     setCount(api.scrollSnapList().length);
     setCurrent(api.selectedScrollSnap());
 
-    api.on("select", () => {
+    api.on('select', () => {
       setCurrent(api.selectedScrollSnap());
     });
   }, [api]);
@@ -55,8 +55,8 @@ export const HighlightImages = () => {
             ))}
           </CarouselContent>
           {/* Navigation buttons - hidden on mobile, visible on lg+ */}
-          <CarouselPrevious variant={"ulaw"} className="hidden lg:flex" />
-          <CarouselNext variant={"ulaw"} className="hidden lg:flex" />
+          <CarouselPrevious variant={'ulaw'} className="hidden lg:flex" />
+          <CarouselNext variant={'ulaw'} className="hidden lg:flex" />
 
           {/* Mobile scroll indicators */}
           <div className="flex justify-center gap-2 mt-4">
@@ -65,11 +65,11 @@ export const HighlightImages = () => {
                 key={index}
                 onClick={() => api?.scrollTo(index)}
                 className={cn(
-                  "h-2 rounded-full transition-all duration-300",
-                  current === index ? "w-8 bg-ulaw-blue2" : "w-2 bg-gray-300",
+                  'h-2 rounded-full transition-all duration-300',
+                  current === index ? 'w-8 bg-ulaw-blue2' : 'w-2 bg-gray-300',
                 )}
                 aria-label={`Go to slide ${index + 1}`}
-                aria-current={current === index ? "true" : "false"}
+                aria-current={current === index ? 'true' : 'false'}
               />
             ))}
           </div>

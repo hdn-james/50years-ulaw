@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { useEffect, useState, useRef, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
+import { AnimatePresence, motion } from 'framer-motion';
+import Image from 'next/image';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 interface TimeLeft {
   days: number;
@@ -31,11 +31,11 @@ function AnimatedDigit({ value }: AnimatedDigitProps) {
       <AnimatePresence mode="popLayout" initial={false}>
         <motion.span
           key={currentDigit}
-          initial={{ y: prevDigit < currentDigit ? "100%" : "-100%" }}
+          initial={{ y: prevDigit < currentDigit ? '100%' : '-100%' }}
           animate={{ y: 0 }}
-          exit={{ y: prevDigit < currentDigit ? "-100%" : "100%" }}
+          exit={{ y: prevDigit < currentDigit ? '-100%' : '100%' }}
           transition={{
-            type: "spring",
+            type: 'spring',
             stiffness: 200,
             damping: 25,
           }}
@@ -55,7 +55,7 @@ interface AnimatedNumberProps {
 
 function AnimatedNumber({ value, digits }: AnimatedNumberProps) {
   const valueStr = String(value);
-  const digitArray = valueStr.split("").map(Number);
+  const digitArray = valueStr.split('').map(Number);
 
   return (
     <div className="inline-flex h-full">
@@ -101,7 +101,7 @@ export function SplashScreen({ onComplete }: SplashScreenProps) {
   useEffect(() => {
     setIsLoaded(true);
 
-    const targetDate = new Date("2026-03-30T00:00:00+07:00").getTime();
+    const targetDate = new Date('2026-03-30T00:00:00+07:00').getTime();
 
     const calculateTimeLeft = () => {
       const now = new Date().getTime();
@@ -137,12 +137,12 @@ export function SplashScreen({ onComplete }: SplashScreenProps) {
     setTimeout(calculateScale, 100);
 
     // Recalculate on resize
-    window.addEventListener("resize", calculateScale);
+    window.addEventListener('resize', calculateScale);
 
     return () => {
       clearInterval(timer);
       clearTimeout(hideTimer);
-      window.removeEventListener("resize", calculateScale);
+      window.removeEventListener('resize', calculateScale);
     };
   }, [onComplete, calculateScale]);
 
@@ -168,8 +168,8 @@ export function SplashScreen({ onComplete }: SplashScreenProps) {
             className="relative flex flex-col items-center justify-center px-4 py-4 sm:py-6 md:py-8 text-center"
             style={{
               transform: `scale(${scale})`,
-              transformOrigin: "center center",
-              transition: "transform 0.3s ease-out",
+              transformOrigin: 'center center',
+              transition: 'transform 0.3s ease-out',
             }}
           >
             {/* Logo */}
@@ -262,7 +262,7 @@ export function SplashScreen({ onComplete }: SplashScreenProps) {
               transition={{
                 duration: 4,
                 repeat: Infinity,
-                ease: "easeInOut",
+                ease: 'easeInOut',
               }}
               className="absolute -right-20 -top-20 h-96 w-96 rounded-full bg-[var(--color-ulaw-light)] blur-3xl"
             />
@@ -274,7 +274,7 @@ export function SplashScreen({ onComplete }: SplashScreenProps) {
               transition={{
                 duration: 5,
                 repeat: Infinity,
-                ease: "easeInOut",
+                ease: 'easeInOut',
                 delay: 1,
               }}
               className="absolute -bottom-20 -left-20 h-96 w-96 rounded-full bg-[var(--color-ulaw-green)] blur-3xl"
@@ -287,7 +287,7 @@ export function SplashScreen({ onComplete }: SplashScreenProps) {
               transition={{
                 duration: 6,
                 repeat: Infinity,
-                ease: "easeInOut",
+                ease: 'easeInOut',
                 delay: 2,
               }}
               className="absolute left-1/2 top-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--color-ulaw-purple)] blur-3xl"

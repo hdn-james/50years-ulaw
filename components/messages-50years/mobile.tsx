@@ -1,6 +1,6 @@
-import { steps } from "@/constants";
-import { cn } from "@/lib/utils";
-import Image from "next/image";
+import Image from 'next/image';
+import { steps } from '@/constants';
+import { cn } from '@/lib/utils';
 export const MobileVersion = () => {
   return (
     <div id="le-ky-niem-50-nam" className="container space-y-4 py-10">
@@ -19,7 +19,7 @@ export const MobileVersion = () => {
                 alt={step.key}
                 width={400}
                 height={400}
-                className={cn("rounded-lg shadow-md h-auto object-cover", step.img.length <= 1 ? "w-full" : "w-2/5")}
+                className={cn('rounded-lg shadow-md h-auto object-cover', step.img.length <= 1 ? 'w-full' : 'w-2/5')}
                 loading="lazy"
               />
             ))}

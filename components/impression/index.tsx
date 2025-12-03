@@ -1,7 +1,7 @@
 import Image from "next/image";
+import { CountingNumber } from "../ui/counting-number";
 import { Separator } from "../ui/separator";
 import { TypingText } from "../ui/typing-text";
-import { CountingNumber } from "../ui/counting-number";
 
 const texts = [
   {
@@ -32,7 +32,7 @@ const texts = [
 
 export const Impression = () => {
   return (
-    <section className="">
+    <section id="an-tuong" className="">
       <Image
         src="/sinh-vien-tot-nghiep.webp"
         width={1920}

@@ -1,17 +1,17 @@
-"use client";
+'use client';
 
-import { type HTMLMotionProps, motion, type Transition } from "motion/react";
-import { cn } from "@/lib/utils";
-import { useEffect, useState } from "react";
+import { type HTMLMotionProps, motion, type Transition } from 'motion/react';
+import { useEffect, useState } from 'react';
+import { cn } from '@/lib/utils';
 
-type GradientBackgroundProps = HTMLMotionProps<"div"> & {
+type GradientBackgroundProps = HTMLMotionProps<'div'> & {
   transition?: Transition;
   safariBackground?: string;
 };
 
 function GradientBackground({
   className,
-  transition = { duration: 10, ease: "easeInOut", repeat: Infinity },
+  transition = { duration: 10, ease: 'easeInOut', repeat: Infinity },
   safariBackground,
   ...props
 }: GradientBackgroundProps) {
@@ -20,8 +20,8 @@ function GradientBackground({
 
   useEffect(() => {
     setMounted(true);
-    if (typeof navigator !== "undefined") {
-      setIsSafari(navigator.userAgent.indexOf("Safari") !== -1 && navigator.userAgent.indexOf("Chrome") === -1);
+    if (typeof navigator !== 'undefined') {
+      setIsSafari(navigator.userAgent.indexOf('Safari') !== -1 && navigator.userAgent.indexOf('Chrome') === -1);
     }
   }, []);
 
@@ -37,11 +37,11 @@ function GradientBackground({
     <motion.div
       data-slot="gradient-background"
       className={cn(
-        "size-full bg-[length:300%_300%] bg-gradient-to-br from-0% from-fuchsia-400 via-50% via-violet-500 to-100% to-fuchsia-600",
+        'size-full bg-[length:300%_300%] bg-gradient-to-br from-0% from-fuchsia-400 via-50% via-violet-500 to-100% to-fuchsia-600',
         className,
       )}
       animate={{
-        backgroundPosition: ["0% 0%", "50% 50%", "100% 0%", "50% 100%", "0% 50%", "100% 100%", "0% 0%"],
+        backgroundPosition: ['0% 0%', '50% 50%', '100% 0%', '50% 100%', '0% 50%', '100% 100%', '0% 0%'],
       }}
       whileTap={{
         scale: 0.98,

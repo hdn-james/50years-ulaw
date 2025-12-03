@@ -1,13 +1,13 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
+import { useState } from 'react';
 
 const images = [
-  { src: "/binh-trieu-old.webp", caption: "Lễ khai giảng năm 1980" },
-  { src: "/sinh-vien-tot-nghiep.webp", caption: "Lễ tốt nghiệp 1995" },
-  { src: "/q4-old.webp", caption: "Kỷ niệm 30 năm thành lập" },
-  { src: "/long-phuoc.webp", caption: "Sinh viên xuất sắc 2005" },
-  { src: "/binh-trieu-new.webp", caption: "Hoạt động thiện nguyện" },
-  { src: "/q4-new.webp", caption: "Lễ kỷ niệm 50 năm" },
+  { src: '/binh-trieu-old.webp', caption: 'Lễ khai giảng năm 1980' },
+  { src: '/sinh-vien-tot-nghiep.webp', caption: 'Lễ tốt nghiệp 1995' },
+  { src: '/q4-old.webp', caption: 'Kỷ niệm 30 năm thành lập' },
+  { src: '/long-phuoc.webp', caption: 'Sinh viên xuất sắc 2005' },
+  { src: '/binh-trieu-new.webp', caption: 'Hoạt động thiện nguyện' },
+  { src: '/q4-new.webp', caption: 'Lễ kỷ niệm 50 năm' },
 ];
 
 export default function AnniversaryGallery() {
@@ -73,7 +73,7 @@ export default function AnniversaryGallery() {
           <motion.div
             className="flex"
             animate={{ x: [0, `-${100 * images.length}%`] }}
-            transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+            transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
           >
             {images.map((img, i) => (
               <div key={i} className="flex-shrink-0 w-full relative">

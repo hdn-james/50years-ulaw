@@ -1,12 +1,12 @@
-"use client";
-import { AnimatePresence, motion } from "framer-motion";
-import Image from "next/image";
+'use client';
+import { AnimatePresence, motion } from 'framer-motion';
+import Image from 'next/image';
 
-import { useEffect, useRef, useState } from "react";
-import { steps } from "@/constants";
-import { cn } from "@/lib/utils";
-import { useMediaQuery } from "usehooks-ts";
-import { MobileVersion } from "./mobile";
+import { useEffect, useRef, useState } from 'react';
+import { useMediaQuery } from 'usehooks-ts';
+import { steps } from '@/constants';
+import { cn } from '@/lib/utils';
+import { MobileVersion } from './mobile';
 
 const MotionImage = motion.create(Image);
 
@@ -14,7 +14,7 @@ export function Message50Years() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [mounted, setMounted] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-  const isMobile = useMediaQuery("(max-width: 768px)");
+  const isMobile = useMediaQuery('(max-width: 768px)');
 
   useEffect(() => {
     setMounted(true);
@@ -42,8 +42,8 @@ export function Message50Years() {
       setActiveIndex(index);
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, [mounted, isMobile]);
 
   // Render mobile version only after mounted to prevent hydration mismatch
@@ -67,7 +67,7 @@ export function Message50Years() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -30 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
             className="xl:text-2xl leading-relaxed text-ulaw-navy"
           >
             {steps[activeIndex].text}
@@ -87,11 +87,11 @@ export function Message50Years() {
                   alt={`Step ${i}`}
                   width={499}
                   height={333}
-                  className={cn("rounded-xl shadow-xl", i === 0 && "rounded-none shadow-none")}
+                  className={cn('rounded-xl shadow-xl', i === 0 && 'rounded-none shadow-none')}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 1 }}
-                  loading={i === activeIndex ? "eager" : "lazy"}
+                  loading={i === activeIndex ? 'eager' : 'lazy'}
                   sizes="(max-width: 600px) 100vw, 499px"
                 />
               ))}
